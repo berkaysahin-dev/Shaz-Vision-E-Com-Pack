@@ -1,17 +1,17 @@
 # Vision Content Extractor
 
-Web veya belge içeriklerinden yapılandırılmış veri çıkarmak için Shaz Vision aracı.
+A high-performance **Shaz Vision** tool designed to extract structured data and rich text from web pages and documents.
 
-## Durum
+## Status
 
-Repo iskeleti hazırlanmıştır. Kaynak kod eklendikçe bu README güncellenecektir.
+Repository skeleton initialized. This README will be updated as source code and core features are introduced.
 
-## Planlanan kullanım
+## Planned Features & Usage
 
-- İçerik / metin çıkarma
-- Yapılandırılmış veri üretimi
-- Shaz Vision ürünleriyle entegrasyon
+- **Content & Text Extraction**: Extract clean text and context from web pages and various document formats.
+- **Structured Data Generation**: Parse and transform unstructured inputs into structured JSON and key-value attributes.
+- **Shaz Vision Integration**: Seamless integration with the broader ecosystem of Shaz Vision products.
 
 ---
 
-© Shaz Vision. Tüm hakları saklıdır.
+© Shaz Vision. All rights reserved.
