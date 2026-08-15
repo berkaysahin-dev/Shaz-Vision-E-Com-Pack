@@ -65,10 +65,13 @@ Panel içerisindeki **Dağıtım & İndirme Merkezi (`/downloads`)** üzerinden 
 
 ### 2. Vision Product UI Extension (`Vision-Product-UI-Extension.zip` • 656 KB)
 - **Tür**: Shopify App Extension / Theme Embed Widget Paketi
+- **Lisans Koruması**: Bu eklenti lisans anahtarı ile dağıtılmaktadır.
+- **Yetkili Lisans Kodu**: `SHAZ-VISION-UI-EXTENSION`
 - **İçerik**: 20'den fazla dönüşüm widget'ı (Geri sayım barı, ücretsiz kargo hedefi, önce/sonra kaydırıcı, teslimat zaman çizelgesi, güven rozetleri, interaktif görsel noktacıkları).
 - **Kurulum**:
-  1. `Vision-Product-UI-Extension.zip` dosyasını indirin.
+  1. `/downloads` sayfasında lisans kodunu (`SHAZ-VISION-UI-EXTENSION`) girip doğrulayın ve paketi indirin.
   2. Shopify CLI ile `shopify app deploy` komutunu çalıştırın veya blokları tema özelleştiricinizden App Embed olarak aktif edin.
+
 
 ---
 
