@@ -1,0 +1,182 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-footer-{{ block.id }} {
+    padding: 60px 40px;
+    background: {{ block.settings.bg_color | default: '#0f172a' }};
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-radius: {{ block.settings.border_radius | default: 24 }}px {{ block.settings.border_radius | default: 24 }}px 0 0;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .vision-footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .vision-footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: {{ block.settings.title_color | default: '#ffffff' }};
+    margin-bottom: 8px;
+  }
+  .vision-footer-link {
+    color: {{ block.settings.text_color | default: '#94a3b8' }};
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0.85;
+    transition: var(--vision-transition);
+    position: relative;
+    width: fit-content;
+  }
+  .vision-footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; width: 0%; height: 1px;
+    background: {{ block.settings.title_color | default: '#ffffff' }};
+    transition: width 0.3s ease;
+  }
+  .vision-footer-link:hover {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  .vision-footer-link:hover::after {
+    width: 100%;
+  }
+  .vision-footer-bottom {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .vision-signature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .vision-signature-glow {
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+  }
+  .vision-signature:hover {
+    color: #ffffff;
+  }
+  .vision-signature:hover .vision-signature-glow {
+    text-shadow: 0 0 20px rgba(99,102,241,1), 0 0 30px rgba(99,102,241,0.8);
+  }
+{%- endstyle -%}
+
+<div class="vision-block" style="margin:0;" {{ block.shopify_attributes }}>
+  <footer class="vision-footer-{{ block.id }} vision-glass">
+    <div class="vision-footer-grid">
+      <div class="vision-footer-col vision-fade-up">
+        <div class="vision-footer-title">{{ block.settings.col_1_title | default: 'Kurumsal' }}</div>
+        <a href="#" class="vision-footer-link">Hakkımızda</a>
+        <a href="#" class="vision-footer-link">Hikayemiz</a>
+        <a href="#" class="vision-footer-link">Kariyer</a>
+      </div>
+      <div class="vision-footer-col vision-fade-up" style="animation-delay: 0.1s;">
+        <div class="vision-footer-title">{{ block.settings.col_2_title | default: 'Müşteri Hizmetleri' }}</div>
+        <a href="#" class="vision-footer-link">Kargo Politikası</a>
+        <a href="#" class="vision-footer-link">İade & Değişim</a>
+        <a href="#" class="vision-footer-link">Sıkça Sorulan Sorular</a>
+      </div>
+      <div class="vision-footer-col vision-fade-up" style="animation-delay: 0.2s;">
+        <div class="vision-footer-title">{{ block.settings.col_3_title | default: 'Sosyal Medya' }}</div>
+        <a href="#" class="vision-footer-link">Instagram</a>
+        <a href="#" class="vision-footer-link">Twitter</a>
+        <a href="#" class="vision-footer-link">TikTok</a>
+      </div>
+    </div>
+    
+    <div class="vision-footer-bottom vision-fade-up" style="animation-delay: 0.3s;">
+      <div style="color: {{ block.settings.text_color | default: '#94a3b8' }}; opacity: 0.8; font-size: 14px;">
+        &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Tüm hakları saklıdır.
+      </div>
+      
+      <a href="https://shazvision.com" target="_blank" rel="noopener" class="vision-signature">
+        <span>Designed by</span>
+        <span class="vision-signature-glow">Shaz Vision</span>
+      </a>
+    </div>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Premium Footer",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arka Plan Rengi",
+      "default": "#0f172a"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Başlık Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Metin Rengi",
+      "default": "#94a3b8"
+    },
+    {
+      "type": "text",
+      "id": "col_1_title",
+      "label": "1. Sütun Başlığı",
+      "default": "Kurumsal"
+    },
+    {
+      "type": "text",
+      "id": "col_2_title",
+      "label": "2. Sütun Başlığı",
+      "default": "Müşteri Hizmetleri"
+    },
+    {
+      "type": "text",
+      "id": "col_3_title",
+      "label": "3. Sütun Başlığı",
+      "default": "Sosyal Medya"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Üst Kenar Yuvarlatma",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

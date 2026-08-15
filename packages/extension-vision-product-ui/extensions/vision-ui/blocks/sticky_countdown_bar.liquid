@@ -1,0 +1,141 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-ui.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .vision-countdown-{{ block.id }} {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    padding: {{ block.settings.padding }}px 20px;
+    background: {{ block.settings.bg_color }};
+    color: {{ block.settings.text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-shadow: var(--vision-shadow-md);
+  }
+  .vision-countdown-text {
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: 600;
+  }
+  .vision-timer {
+    display: flex;
+    gap: 8px;
+  }
+  .vision-time-box {
+    background: rgba(255,255,255,0.2);
+    padding: 4px 8px;
+    border-radius: var(--vision-radius-sm);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+{%- endstyle -%}
+
+<div class="vision-block" style="margin:0;" {{ block.shopify_attributes }}>
+  <div class="vision-countdown-{{ block.id }} vision-glass" style="border-radius:0;">
+    <span class="vision-countdown-text">{{ block.settings.text }}</span>
+    <div class="vision-timer" data-hours="{{ block.settings.hours }}">
+      <div class="vision-time-box" id="v-hrs-{{ block.id }}">00</div><span>:</span>
+      <div class="vision-time-box" id="v-min-{{ block.id }}">00</div><span>:</span>
+      <div class="vision-time-box" id="v-sec-{{ block.id }}">00</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const timerEl = document.querySelector('.vision-countdown-{{ block.id }} .vision-timer');
+    if (!timerEl) return;
+    
+    let hours = parseInt(timerEl.dataset.hours) || 2;
+    let totalSeconds = hours * 3600;
+    
+    // Check if we have a saved end time in localStorage for this block
+    const storageKey = 'vision_countdown_{{ block.id }}';
+    let endTime = localStorage.getItem(storageKey);
+    
+    if (!endTime || endTime < Date.now()) {
+      endTime = Date.now() + (totalSeconds * 1000);
+      localStorage.setItem(storageKey, endTime);
+    }
+    
+    function updateTimer() {
+      let remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+      
+      const h = Math.floor(remaining / 3600);
+      const m = Math.floor((remaining % 3600) / 60);
+      const s = remaining % 60;
+      
+      document.getElementById('v-hrs-{{ block.id }}').innerText = h.toString().padStart(2, '0');
+      document.getElementById('v-min-{{ block.id }}').innerText = m.toString().padStart(2, '0');
+      document.getElementById('v-sec-{{ block.id }}').innerText = s.toString().padStart(2, '0');
+      
+      if (remaining > 0) {
+        requestAnimationFrame(updateTimer);
+      }
+    }
+    
+    updateTimer();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Sticky Countdown Bar",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "🔥 FLASH SALE ENDS IN:"
+    },
+    {
+      "type": "range",
+      "id": "hours",
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "label": "Timer Duration (Hours)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ef4444"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

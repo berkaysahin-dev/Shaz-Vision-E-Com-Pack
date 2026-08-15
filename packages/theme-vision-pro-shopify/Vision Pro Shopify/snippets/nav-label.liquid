@@ -1,0 +1,48 @@
+{% comment %}
+  Translates common English navigation labels to Turkish for display.
+  Usage: {% render 'nav-label', title: link.title %}
+{% endcomment %}
+{%- liquid
+  assign raw_title = title | strip
+  assign lower_title = raw_title | downcase
+  case lower_title
+    when 'home'
+      echo 'Ana Sayfa'
+    when 'catalog'
+      echo 'Katalog'
+    when 'catalogue'
+      echo 'Katalog'
+    when 'contact'
+      echo 'İletişim'
+    when 'products'
+      echo 'Ürünler'
+    when 'product'
+      echo 'Ürün'
+    when 'collections'
+      echo 'Koleksiyonlar'
+    when 'collection'
+      echo 'Koleksiyon'
+    when 'about'
+      echo 'Hakkımızda'
+    when 'about us'
+      echo 'Hakkımızda'
+    when 'shop'
+      echo 'Mağaza'
+    when 'shop all'
+      echo 'Tümünü Gör'
+    when 'cart'
+      echo 'Sepet'
+    when 'search'
+      echo 'Ara'
+    when 'account'
+      echo 'Hesap'
+    when 'blog'
+      echo 'Blog'
+    when 'new'
+      echo 'Yeni'
+    when 'sale'
+      echo 'İndirim'
+    else
+      echo raw_title
+  endcase
+-%}

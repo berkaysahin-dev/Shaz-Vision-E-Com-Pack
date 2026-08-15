@@ -1,0 +1,175 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-hero-{{ block.id }} {
+    position: relative;
+    width: 100%;
+    min-height: {{ block.settings.height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: {{ block.settings.alignment }};
+    padding: 40px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border-radius: var(--vision-radius-xl);
+  }
+  .vision-hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .vision-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 2;
+  }
+  .vision-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: var(--vision-radius-lg);
+    text-align: center;
+  }
+  .vision-hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: {{ block.settings.text_color }};
+  }
+  .vision-hero-subtitle {
+    font-size: 18px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+  .vision-hero-btn {
+    display: inline-block;
+    background: {{ block.settings.btn_color }};
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--vision-radius-full);
+    transition: var(--vision-transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  .vision-hero-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-hero-{{ block.id }}">
+    {% if block.settings.video_url != blank %}
+      <video class="vision-hero-bg" autoplay loop muted playsinline>
+        <source src="{{ block.settings.video_url }}" type="video/mp4">
+      </video>
+    {% elsif block.settings.image != blank %}
+      {{ block.settings.image | image_url: width: 2000 | image_tag: class: 'vision-hero-bg' }}
+    {% else %}
+      <div class="vision-hero-bg" style="background: #1e293b;"></div>
+    {% endif %}
+    
+    <div class="vision-hero-overlay"></div>
+    
+    <div class="vision-hero-content vision-glass" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+      <h2 class="vision-hero-title">{{ block.settings.title }}</h2>
+      <p class="vision-hero-subtitle">{{ block.settings.subtitle }}</p>
+      {% if block.settings.btn_text != blank %}
+        <a href="{{ block.settings.btn_link }}" class="vision-hero-btn">{{ block.settings.btn_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Video Banner",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Background Video URL (.mp4)",
+      "info": "Upload an MP4 file to Shopify Files and paste the URL here."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Fallback Image"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Banner Height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "label": "Overlay Opacity (%)",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Content Alignment",
+      "options": [
+        {"value": "flex-start", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "flex-end", "label": "Right"}
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Headline",
+      "default": "Elevate Your Lifestyle."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover the most premium products designed specifically for you."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button Color",
+      "default": "#10b981"
+    }
+  ]
+}
+{% endschema %}

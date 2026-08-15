@@ -1,0 +1,366 @@
+{{ 'vision-pro-3d.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-pro-3d.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<vision-pro-3d class="vision-pro-3d color-{{ section.settings.color_scheme }} gradient animate-section animate--hidden section-{{ section.id }}-padding">
+  <div class="vision-pro-3d__glow" aria-hidden="true"></div>
+  <div class="page-width vision-pro-3d__inner">
+    <div class="vision-pro-3d__content animate-item">
+      {% if section.settings.badge != blank %}
+        <span class="vision-pro-3d__badge">
+          {% render 'material-icon', icon: 'auto_awesome', filled: true %}
+          {{ section.settings.badge }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="vision-pro-3d__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="vision-pro-3d__text rte">{{ section.settings.text }}</div>
+      {% endif %}
+
+      <ul class="vision-pro-3d__features">
+        {% if section.settings.feature_1 != blank %}
+          <li class="vision-pro-3d__feature">
+            <span class="vision-pro-3d__feature-icon">{% render 'material-icon', icon: section.settings.feature_1_icon, filled: false %}</span>
+            {{ section.settings.feature_1 }}
+          </li>
+        {% endif %}
+        {% if section.settings.feature_2 != blank %}
+          <li class="vision-pro-3d__feature">
+            <span class="vision-pro-3d__feature-icon">{% render 'material-icon', icon: section.settings.feature_2_icon, filled: false %}</span>
+            {{ section.settings.feature_2 }}
+          </li>
+        {% endif %}
+        {% if section.settings.feature_3 != blank %}
+          <li class="vision-pro-3d__feature">
+            <span class="vision-pro-3d__feature-icon">{% render 'material-icon', icon: section.settings.feature_3_icon, filled: false %}</span>
+            {{ section.settings.feature_3 }}
+          </li>
+        {% endif %}
+      </ul>
+
+      <div class="vision-pro-3d__actions">
+        {% if section.settings.button_label != blank %}
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="button button--primary"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+        {% if section.settings.button_label_2 != blank %}
+          <a
+            {% if section.settings.button_link_2 == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link_2 }}"
+            {% endif %}
+            class="button button--secondary"
+          >
+            {{ section.settings.button_label_2 }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="vision-pro-3d__stats">
+        <div class="vision-pro-3d__stat">
+          <div class="vision-pro-3d__stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <strong>{{ section.settings.stat_1_value }}</strong>
+          <span>{{ section.settings.stat_1_label }}</span>
+        </div>
+        <div class="vision-pro-3d__stat">
+          <div class="vision-pro-3d__stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <strong>{{ section.settings.stat_2_value }}</strong>
+          <span>{{ section.settings.stat_2_label }}</span>
+        </div>
+        <div class="vision-pro-3d__stat">
+          <div class="vision-pro-3d__stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+          </div>
+          <strong>{{ section.settings.stat_3_value }}</strong>
+          <span>{{ section.settings.stat_3_label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vision-pro-3d__visual animate-item">
+      <div class="vision-pro-3d__stage">
+        <div class="vision-pro-3d__orbit vision-pro-3d__orbit--1" aria-hidden="true">
+          <span class="vision-pro-3d__orbit-dot"></span>
+        </div>
+        <div class="vision-pro-3d__orbit vision-pro-3d__orbit--2" aria-hidden="true"></div>
+        <div class="vision-pro-3d__glass-card vision-pro-3d__glass-card--back" aria-hidden="true"></div>
+        <div class="vision-pro-3d__glass-card">
+          {% if section.settings.visual_logo != blank %}
+            <div class="vision-pro-3d__glass-logo vision-pro-3d__glass-logo--image">
+              {%- assign visual_logo_alt = section.settings.visual_title | default: shop.name -%}
+              {{
+                section.settings.visual_logo
+                | image_url: width: 240
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '72, 96, 144, 192, 240',
+                  sizes: '88px',
+                  alt: visual_logo_alt
+              }}
+            </div>
+          {% else %}
+            <div class="vision-pro-3d__glass-logo">
+              {{ section.settings.visual_logo_text | default: 'VP' }}
+            </div>
+          {% endif %}
+          {% if section.settings.visual_title != blank %}
+            <p class="vision-pro-3d__glass-title">{{ section.settings.visual_title }}</p>
+          {% endif %}
+          {% if section.settings.visual_subtitle != blank %}
+            <p class="vision-pro-3d__glass-sub">{{ section.settings.visual_subtitle }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</vision-pro-3d>
+
+{% schema %}
+{
+  "name": "Vision Pro 3D",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "background-1", "label": "Arka plan 1" },
+        { "value": "background-2", "label": "Arka plan 2" },
+        { "value": "accent-1", "label": "Vurgu 1" },
+        { "value": "inverse", "label": "Ters" }
+      ],
+      "default": "background-2",
+      "label": "Renk şeması"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Rozet metni",
+      "default": "Yeni Nesil Alışveriş"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Başlık",
+      "default": "Geleceğin Alışveriş Deneyimi"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Metin",
+      "default": "<p>Modern tasarım, hızlı teslimat ve güvenli alışveriş ile fark yaratan bir mağaza deneyimi sunuyoruz.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Özellikler"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_icon",
+      "label": "Özellik 1 ikon",
+      "default": "local_shipping"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Özellik 1",
+      "default": "500 TL üzeri ücretsiz kargo"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_icon",
+      "label": "Özellik 2 ikon",
+      "default": "verified"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Özellik 2",
+      "default": "Orijinal ürün garantisi"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_icon",
+      "label": "Özellik 3 ikon",
+      "default": "sync"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Özellik 3",
+      "default": "14 gün koşulsuz iade"
+    },
+    {
+      "type": "header",
+      "content": "Butonlar"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Birincil buton",
+      "default": "Koleksiyonu Keşfet"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Birincil buton linki"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "İkincil buton",
+      "default": "Bize Ulaşın"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "İkincil buton linki"
+    },
+    {
+      "type": "header",
+      "content": "3D görsel"
+    },
+    {
+      "type": "image_picker",
+      "id": "visual_logo",
+      "label": "Kart logosu",
+      "info": "Yüklenirse VP yazısı yerine logo gösterilir."
+    },
+    {
+      "type": "text",
+      "id": "visual_logo_text",
+      "label": "Logo yoksa metin",
+      "default": "VP",
+      "info": "Logo yüklenmemişse bu kısaltma gösterilir."
+    },
+    {
+      "type": "text",
+      "id": "visual_title",
+      "label": "Kart başlığı",
+      "default": "Vision Pro"
+    },
+    {
+      "type": "text",
+      "id": "visual_subtitle",
+      "label": "Kart alt metni",
+      "default": "Premium Alışveriş"
+    },
+    {
+      "type": "header",
+      "content": "İstatistikler"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_icon",
+      "label": "İstatistik 1 ikon",
+      "default": "groups"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_value",
+      "label": "İstatistik 1 değer",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "İstatistik 1 etiket",
+      "default": "Mutlu Müşteri"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_icon",
+      "label": "İstatistik 2 ikon",
+      "default": "star"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_value",
+      "label": "İstatistik 2 değer",
+      "default": "4.9/5"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "İstatistik 2 etiket",
+      "default": "Müşteri Puanı"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_icon",
+      "label": "İstatistik 3 ikon",
+      "default": "support_agent"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_value",
+      "label": "İstatistik 3 değer",
+      "default": "7/24"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "İstatistik 3 etiket",
+      "default": "Destek"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Üst boşluk",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt boşluk",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vision Pro 3D"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,274 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-hotspot-container-{{ block.id }} {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: {{ block.settings.margin }}px auto;
+    border-radius: var(--vision-radius-md);
+    overflow: hidden;
+  }
+  .vision-hotspot-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .vision-hotspot-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: {{ block.settings.hotspot_color }};
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .vision-hotspot-point::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: {{ block.settings.hotspot_color }};
+    animation: visionPulse 2s infinite;
+    opacity: 0.6;
+    z-index: -1;
+  }
+  .vision-hotspot-point::after {
+    content: '+';
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .vision-hotspot-point:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  /* Tooltip */
+  .vision-hotspot-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: {{ block.settings.tooltip_bg }};
+    color: {{ block.settings.tooltip_color }};
+    padding: 12px;
+    border-radius: var(--vision-radius-md);
+    width: max-content;
+    max-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: var(--vision-shadow-md);
+    pointer-events: none;
+    text-align: center;
+    font-size: 14px;
+  }
+  .vision-hotspot-point:hover .vision-hotspot-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+  }
+  .vision-hotspot-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: {{ block.settings.tooltip_bg }} transparent transparent transparent;
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-hotspot-container-{{ block.id }}">
+    {% if block.settings.image != blank %}
+      {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'vision-hotspot-img', loading: 'lazy' }}
+    {% else %}
+      <div style="background: #e5e7eb; padding: 100px 20px; text-align: center; color: #6b7280;">
+        Select an image to add hotspots
+      </div>
+    {% endif %}
+    
+    {% if block.settings.show_hotspot_1 and block.settings.text_1 != blank %}
+      <div class="vision-hotspot-point" style="top: {{ block.settings.top_1 }}%; left: {{ block.settings.left_1 }}%;">
+        <div class="vision-hotspot-tooltip">{{ block.settings.text_1 }}</div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_hotspot_2 and block.settings.text_2 != blank %}
+      <div class="vision-hotspot-point" style="top: {{ block.settings.top_2 }}%; left: {{ block.settings.left_2 }}%;">
+        <div class="vision-hotspot-tooltip">{{ block.settings.text_2 }}</div>
+      </div>
+    {% endif %}
+    
+    {% if block.settings.show_hotspot_3 and block.settings.text_3 != blank %}
+      <div class="vision-hotspot-point" style="top: {{ block.settings.top_3 }}%; left: {{ block.settings.left_3 }}%;">
+        <div class="vision-hotspot-tooltip">{{ block.settings.text_3 }}</div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Interactive Hotspot",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Base Image"
+    },
+    {
+      "type": "header",
+      "content": "Hotspot 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hotspot_1",
+      "label": "Enable Hotspot 1",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "top_1",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "left_1",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal Position",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Tooltip Text",
+      "default": "Premium Material"
+    },
+    {
+      "type": "header",
+      "content": "Hotspot 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hotspot_2",
+      "label": "Enable Hotspot 2",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "top_2",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "left_2",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal Position",
+      "default": 70
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Tooltip Text",
+      "default": "Ergonomic Design"
+    },
+    {
+      "type": "header",
+      "content": "Hotspot 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hotspot_3",
+      "label": "Enable Hotspot 3",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "top_3",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "left_3",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Horizontal Position",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Tooltip Text",
+      "default": "Durable Finish"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color",
+      "label": "Hotspot Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tooltip_bg",
+      "label": "Tooltip Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tooltip_color",
+      "label": "Tooltip Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "margin",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Vertical Margin",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

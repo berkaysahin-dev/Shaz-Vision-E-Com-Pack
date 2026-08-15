@@ -1,0 +1,101 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "title": "Koleksiyonlarımız",
+        "sort": "alphabetical",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "columns_mobile": "2"
+      }
+    },
+    "catalog_list_features": {
+      "type": "icon-bar",
+      "blocks": {
+        "cl_1": {
+          "type": "column",
+          "settings": {
+            "icon": "category",
+            "filled_icon": false,
+            "title": "Geniş Katalog",
+            "text": "<p>Tüm kategoriler tek yerde.</p>"
+          }
+        },
+        "cl_2": {
+          "type": "column",
+          "settings": {
+            "icon": "photo_library",
+            "filled_icon": false,
+            "title": "Yüksek Kalite",
+            "text": "<p>Detaylı ürün görselleri.</p>"
+          }
+        },
+        "cl_3": {
+          "type": "column",
+          "settings": {
+            "icon": "update",
+            "filled_icon": false,
+            "title": "Güncel Stok",
+            "text": "<p>Anlık stok bilgisi.</p>"
+          }
+        }
+      },
+      "block_order": ["cl_1", "cl_2", "cl_3"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "heading_size": "h2",
+        "text": "",
+        "color_scheme": "background-2",
+        "icon_layout": "horizontal",
+        "icon_size": "medium",
+        "icon_color": "accent-1",
+        "cards_color_scheme": "background-1",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "slider_desktop": false,
+        "slider_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bültenimize Abone Olun",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Özel teklifler ve yeni koleksiyonlardan ilk siz haberdar olun.</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["heading", "paragraph", "email-form"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "button_type": "solid",
+        "button_label": "Abone Ol",
+        "button_style_secondary": false,
+        "color_scheme": "inverse",
+        "overlay_opacity": 40,
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "catalog_list_features", "newsletter"]
+}

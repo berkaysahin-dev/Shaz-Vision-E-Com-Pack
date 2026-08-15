@@ -1,0 +1,187 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-ui.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .vision-ba-container-{{ block.id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.height | default: 400 }}px;
+    border-radius: {{ block.settings.border_radius | default: 16 }}px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: var(--vision-shadow-md);
+  }
+  .vision-ba-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vision-ba-after { z-index: 1; }
+  .vision-ba-before {
+    z-index: 2;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+  .vision-ba-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: {{ block.settings.slider_color | default: '#ffffff' }};
+    z-index: 3;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+  }
+  .vision-ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    background: {{ block.settings.slider_color | default: '#ffffff' }};
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--vision-shadow-lg);
+    color: #0f172a;
+  }
+  .vision-ba-label {
+    position: absolute;
+    bottom: 16px;
+    padding: 6px 14px;
+    border-radius: var(--vision-radius-sm);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 4;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+  }
+  .vision-ba-label-before { left: 16px; }
+  .vision-ba-label-after { right: 16px; }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-ba-container-{{ block.id }} vision-ba-wrapper" data-id="{{ block.id }}">
+    {% if block.settings.image_after != blank %}
+      {{ block.settings.image_after | image_url: width: 800 | image_tag: class: 'vision-ba-img vision-ba-after' }}
+    {% else %}
+      <div class="vision-ba-img vision-ba-after" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:600;">Sonraki Görsel</div>
+    {% endif %}
+
+    {% if block.settings.image_before != blank %}
+      {{ block.settings.image_before | image_url: width: 800 | image_tag: class: 'vision-ba-img vision-ba-before', id: 'vision-before-' | append: block.id }}
+    {% else %}
+      <div class="vision-ba-img vision-ba-before" id="vision-before-{{ block.id }}" style="background: #94a3b8; display:flex; align-items:center; justify-content:center; color:#ffffff; font-weight:600;">Önceki Görsel</div>
+    {% endif %}
+
+    <div class="vision-ba-slider" id="vision-slider-{{ block.id }}">
+      <div class="vision-ba-handle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l-7-7 7-7zm8 0v14l7-7-7-7z"/></svg>
+      </div>
+    </div>
+    
+    {% if block.settings.label_before != blank %}
+      <div class="vision-ba-label vision-ba-label-before">{{ block.settings.label_before }}</div>
+    {% endif %}
+    {% if block.settings.label_after != blank %}
+      <div class="vision-ba-label vision-ba-label-after">{{ block.settings.label_after }}</div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const wrapper = document.querySelector('.vision-ba-container-{{ block.id }}');
+    if (!wrapper) return;
+    const beforeImage = wrapper.querySelector('#vision-before-{{ block.id }}');
+    const slider = wrapper.querySelector('#vision-slider-{{ block.id }}');
+    let isDragging = false;
+    
+    function updateSlider(e) {
+      if (!isDragging) return;
+      const rect = wrapper.getBoundingClientRect();
+      let x = e.clientX || (e.touches && e.touches[0].clientX);
+      x = x - rect.left;
+      let percentage = (x / rect.width) * 100;
+      if (percentage < 0) percentage = 0;
+      if (percentage > 100) percentage = 100;
+      
+      slider.style.left = percentage + '%';
+      beforeImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+    }
+    
+    slider.addEventListener('mousedown', () => isDragging = true);
+    slider.addEventListener('touchstart', () => isDragging = true, {passive: true});
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('mousemove', updateSlider);
+    window.addEventListener('touchmove', updateSlider, {passive: true});
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Öncesi / Sonrası Slider",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_before",
+      "label": "Önceki Görsel (Before)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_after",
+      "label": "Sonraki Görsel (After)"
+    },
+    {
+      "type": "text",
+      "id": "label_before",
+      "label": "Öncesi Etiketi",
+      "default": "Öncesi"
+    },
+    {
+      "type": "text",
+      "id": "label_after",
+      "label": "Sonrası Etiketi",
+      "default": "Sonrası"
+    },
+    {
+      "type": "color",
+      "id": "slider_color",
+      "label": "Kaydırıcı Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Kenar Yuvarlatma",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Kutu Yüksekliği (px)",
+      "default": 400
+    }
+  ]
+}
+{% endschema %}

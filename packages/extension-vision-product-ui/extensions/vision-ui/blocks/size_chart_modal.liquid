@@ -1,0 +1,141 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-size-chart-trigger-{{ block.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: {{ block.settings.btn_font_size }}px;
+    color: {{ block.settings.btn_color }};
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px 0;
+    text-decoration: underline;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <button type="button" class="vision-size-chart-trigger-{{ block.id }}" onclick="document.getElementById('vision-modal-{{ block.id }}').classList.add('active')">
+    <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v3h2V8h2v4h2V8h2v3h2V8h2v8z"/></svg>
+    <span>{{ block.settings.btn_label | default: 'Beden Rehberi ve Ölçü Tablosu' }}</span>
+  </button>
+
+  <div id="vision-modal-{{ block.id }}" class="vision-modal-overlay" onclick="if(event.target===this) this.classList.remove('active')">
+    <div class="vision-modal-card">
+      <div class="vision-modal-header">
+        <h3 class="vision-modal-title">{{ block.settings.modal_title }}</h3>
+        <button class="vision-modal-close" onclick="document.getElementById('vision-modal-{{ block.id }}').classList.remove('active')" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="vision-modal-body">
+        {% if block.settings.size_guide_img != blank %}
+          <img src="{{ block.settings.size_guide_img | image_url: width: 800 }}" alt="Beden Tablosu" width="800" height="600" loading="lazy" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 16px;">
+        {% endif %}
+        
+        <table class="vision-size-table">
+          <thead>
+            <tr>
+              <th>Beden</th>
+              <th>Göğüs (cm)</th>
+              <th>Bel (cm)</th>
+              <th>Basen (cm)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>S</strong></td>
+              <td>84-88</td>
+              <td>66-70</td>
+              <td>90-94</td>
+            </tr>
+            <tr>
+              <td><strong>M</strong></td>
+              <td>88-92</td>
+              <td>70-74</td>
+              <td>94-98</td>
+            </tr>
+            <tr>
+              <td><strong>L</strong></td>
+              <td>92-96</td>
+              <td>74-78</td>
+              <td>98-102</td>
+            </tr>
+            <tr>
+              <td><strong>XL</strong></td>
+              <td>96-102</td>
+              <td>78-84</td>
+              <td>102-108</td>
+            </tr>
+          </tbody>
+        </table>
+        {% if block.settings.note_text != blank %}
+          <p style="font-size: 12px; color: #64748b; margin-top: 14px; display: flex; align-items: center; gap: 6px;">
+            <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>{{ block.settings.note_text }}</span>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Beden Tablosu Modalı",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Buton Etiketi",
+      "default": "Beden Rehberi ve Ölçü Tablosu"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Buton Yazı Rengi",
+      "default": "#4f46e5"
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Buton Yazı Boyutu",
+      "default": 14
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Modal Başlığı",
+      "default": "Beden Rehberi"
+    },
+    {
+      "type": "image_picker",
+      "id": "size_guide_img",
+      "label": "Özel Beden Görseli"
+    },
+    {
+      "type": "text",
+      "id": "note_text",
+      "label": "Alt Bilgi Notu",
+      "default": "Ölçüler arasında kalıyorsanız bir beden büyük tercih etmenizi öneririz."
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt Boşluk",
+      "default": 16
+    }
+  ]
+}
+{% endschema %}

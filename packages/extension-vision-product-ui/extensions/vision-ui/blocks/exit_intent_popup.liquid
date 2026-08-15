@@ -1,0 +1,102 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-ui.js' | asset_url }}" defer="defer"></script>
+
+<div id="vision-exit-modal-{{ block.id }}" class="vision-exit-modal-overlay" {{ block.shopify_attributes }}>
+  <div class="vision-exit-card" style="border-radius: {{ block.settings.card_radius | default: 24 }}px;">
+    <button class="vision-exit-close" onclick="VisionUI.closeExitModal('{{ block.id }}')" aria-label="Kapat">&times;</button>
+    
+    <span class="vision-exit-badge" style="background: {{ block.settings.badge_bg | default: '#fef2f2' }}; color: {{ block.settings.badge_color | default: '#ef4444' }};">
+      <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 13C10.832 21 2 20 2 12V8a2 2 0 012-2h16a2 2 0 012 2v4c0 8-8.832 9-10 9z"/></svg>
+      <span>{{ block.settings.badge_text | default: 'BEKLE! SANA ÖZEL İNDİRİM' }}</span>
+    </span>
+    
+    <h2 class="vision-exit-title">{{ block.settings.title | default: 'Gitmeden Önce İndirimini Al!' }}</h2>
+    <p class="vision-exit-desc">{{ block.settings.description | default: 'Alışverişini tamamlaman için sana özel ekstra %15 indirim tanımladık!' }}</p>
+    
+    <div class="vision-exit-coupon-box" style="border-color: {{ block.settings.accent_color | default: '#6366f1' }};">
+      <span class="vision-exit-code" id="vision-coupon-code-{{ block.id }}" style="color: {{ block.settings.accent_color | default: '#6366f1' }};">
+        {{ block.settings.coupon_code | default: 'KACIRMA15' }}
+      </span>
+      <button type="button" class="vision-exit-copy-btn" id="vision-copy-btn-{{ block.id }}" style="background: {{ block.settings.accent_color | default: '#6366f1' }};" onclick="VisionUI.copyCoupon('{{ block.id }}', '{{ block.settings.coupon_code | default: 'KACIRMA15' }}')">
+        Kodu Kopyala
+      </button>
+    </div>
+
+    <div class="vision-exit-timer">
+      <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Fırsatın dolmasına kalan süre:</span>
+      <span id="vision-exit-countdown-{{ block.id }}" class="vision-timer-val">09:59</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    VisionUI.initExitIntent('{{ block.id }}', {
+      code: '{{ block.settings.coupon_code | default: 'KACIRMA15' }}'
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Sepetten Kaçış Modalı",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "javascript": "vision-ui.js",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Rozet Metni",
+      "default": "BEKLE! SANA ÖZEL İNDİRİM"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Başlık",
+      "default": "Gitmeden Önce İndirimini Al!"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Açıklama Metni",
+      "default": "Alışverişini tamamlaman için sana özel ekstra %15 indirim tanımladık!"
+    },
+    {
+      "type": "text",
+      "id": "coupon_code",
+      "label": "Kupon Kodu",
+      "default": "KACIRMA15"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Vurgu Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Rozet Arka Planı",
+      "default": "#fef2f2"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Rozet Yazı Rengi",
+      "default": "#ef4444"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 8,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "Kart Yuvarlatması",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

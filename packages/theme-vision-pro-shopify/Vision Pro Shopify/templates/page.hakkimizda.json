@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "vp-hakkimizda",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

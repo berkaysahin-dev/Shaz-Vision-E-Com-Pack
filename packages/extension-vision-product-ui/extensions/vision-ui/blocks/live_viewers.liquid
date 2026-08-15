@@ -1,0 +1,149 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-live-viewers-{{ block.id }} {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: {{ block.settings.bg_color }};
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 10px 16px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+  }
+  .vision-live-dot-{{ block.id }} {
+    width: 10px;
+    height: 10px;
+    background-color: {{ block.settings.dot_color }};
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .vision-live-dot-{{ block.id }}::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid {{ block.settings.dot_color }};
+    border-radius: 50%;
+    animation: visionPulse 1.8s infinite ease-in-out;
+  }
+  .vision-live-text-{{ block.id }} {
+    font-size: {{ block.settings.font_size }}px;
+    color: {{ block.settings.text_color }};
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vision-live-text-{{ block.id }} strong {
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-live-viewers-{{ block.id }}">
+    <div class="vision-live-dot-{{ block.id }}"></div>
+    <div class="vision-live-text-{{ block.id }}">
+      <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+      <span>Şu an bu ürünü <strong id="vision-viewer-count-{{ block.id }}">{{ block.settings.min_viewers }}</strong> kişi inceliyor</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById("vision-viewer-count-{{ block.id }}");
+    if (!el) return;
+    const min = {{ block.settings.min_viewers | default: 14 }};
+    const max = {{ block.settings.max_viewers | default: 50 }};
+    setInterval(function() {
+      el.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
+    }, 4500);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Canlı Ziyaretçi Sayacı",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "range",
+      "id": "min_viewers",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "label": "Minimum Ziyaretçi Sayısı",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "max_viewers",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "label": "Maksimum Ziyaretçi Sayısı",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Canlı İkon Rengi",
+      "default": "#ef4444"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arka Plan Rengi",
+      "default": "#fef2f2"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Çerçeve Rengi",
+      "default": "#fecaca"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Yazı Rengi",
+      "default": "#991b1b"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Metin Boyutu",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Kenar Yuvarlatma",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt Boşluk",
+      "default": 16
+    }
+  ]
+}
+{% endschema %}

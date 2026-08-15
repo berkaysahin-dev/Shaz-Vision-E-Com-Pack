@@ -1,0 +1,362 @@
+{
+  "sections": {
+    "hero_parallax": {
+      "type": "parallax-hero",
+      "blocks": {
+        "hero_content": {
+          "type": "content",
+          "settings": {
+            "vertical_scrollng_speed": -20,
+            "horizontal_scrollng_speed": 0,
+            "zoom_level": 110,
+            "rotation": 0,
+            "z_index": 2,
+            "heading_prefix": "Vision Pro Shopify",
+            "heading": "Stilinizi Yeniden Tanımlayın",
+            "heading_size": 80,
+            "mobile_heading_size": 36,
+            "heading_suffix": "",
+            "heading_prefix_size": "h4",
+            "text": "<p>Premium kalite, modern tasarım ve benzersiz alışveriş deneyimi. Koleksiyonumuzu keşfedin.</p>",
+            "button_label_1": "Alışverişe Başla",
+            "button_link_1": "/collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "Hakkımızda",
+            "button_link_2": "/pages/hakkimizda",
+            "button_style_secondary_2": true,
+            "color_scheme": "inverse",
+            "full_page_width": false,
+            "content_max_width": "percentage",
+            "content_percentage_max_width": 60,
+            "content_pixels_max_width": 600,
+            "content_vertical_position": "center",
+            "content_horizontal_position": "flex-start",
+            "content_text_alignment": "left",
+            "mobile_content_vertical_position": "center",
+            "mobile_content_text_alignment": "center"
+          }
+        }
+      },
+      "block_order": ["hero_content"],
+      "settings": {
+        "min_desktop_height_type": "100vh",
+        "desktop_pixels_height": 700,
+        "min_mobile_height_type": "100vh",
+        "mobile_pixels_height": 500,
+        "transparent_header": true,
+        "transparent_header_text_color": "background-1",
+        "transparent_header_highlighted_link_color": "accent-1",
+        "transparent_header_logo": "main",
+        "hide_announcement_bars": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "vision_3d": {
+      "type": "vision-pro-3d",
+      "settings": {
+        "color_scheme": "background-2",
+        "badge": "Yeni Nesil Alışveriş",
+        "heading": "Geleceğin Alışveriş Deneyimi",
+        "text": "<p>Modern tasarım, hızlı teslimat ve güvenli alışveriş ile fark yaratan bir mağaza deneyimi sunuyoruz.</p>",
+        "feature_1_icon": "local_shipping",
+        "feature_1": "500 TL üzeri ücretsiz kargo",
+        "feature_2_icon": "verified",
+        "feature_2": "Orijinal ürün garantisi",
+        "feature_3_icon": "sync",
+        "feature_3": "14 gün koşulsuz iade",
+        "button_label": "Koleksiyonu Keşfet",
+        "button_link": "/collections/all",
+        "button_label_2": "Bize Ulaşın",
+        "button_link_2": "/pages/contact",
+        "visual_title": "Vision Pro",
+        "visual_subtitle": "Premium Alışveriş",
+        "stat_1_icon": "groups",
+        "stat_1_value": "500+",
+        "stat_1_label": "Mutlu Müşteri",
+        "stat_2_icon": "star",
+        "stat_2_value": "4.9/5",
+        "stat_2_label": "Müşteri Puanı",
+        "stat_3_icon": "support_agent",
+        "stat_3_value": "7/24",
+        "stat_3_label": "Destek",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_products": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Öne Çıkan Ürünler",
+        "heading_size": "h1",
+        "description": "<p>En çok tercih edilen ürünlerimizi keşfedin.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-2",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "icon_features": {
+      "type": "icon-bar",
+      "blocks": {
+        "feat_1": {
+          "type": "column",
+          "settings": {
+            "icon": "local_shipping",
+            "filled_icon": false,
+            "title": "Ücretsiz Kargo",
+            "text": "<p>500 TL ve üzeri siparişlerde ücretsiz kargo.</p>"
+          }
+        },
+        "feat_2": {
+          "type": "column",
+          "settings": {
+            "icon": "verified",
+            "filled_icon": false,
+            "title": "Orijinal Ürün",
+            "text": "<p>%100 orijinal ve kalite garantili ürünler.</p>"
+          }
+        },
+        "feat_3": {
+          "type": "column",
+          "settings": {
+            "icon": "sync",
+            "filled_icon": false,
+            "title": "Kolay İade",
+            "text": "<p>14 gün içinde koşulsuz iade imkânı.</p>"
+          }
+        },
+        "feat_4": {
+          "type": "column",
+          "settings": {
+            "icon": "support_agent",
+            "filled_icon": false,
+            "title": "7/24 Destek",
+            "text": "<p>Her zaman yanınızdayız, sorularınızı yanıtlıyoruz.</p>"
+          }
+        }
+      },
+      "block_order": ["feat_1", "feat_2", "feat_3", "feat_4"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Neden Bizi Tercih Etmelisiniz?",
+        "heading_size": "h1",
+        "text": "",
+        "color_scheme": "background-1",
+        "icon_layout": "vertical",
+        "icon_size": "large",
+        "icon_color": "accent-1",
+        "cards_color_scheme": "background-1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "slider_desktop": false,
+        "slider_mobile": false,
+        "demo_images": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_text": {
+      "type": "image-with-text",
+      "blocks": {
+        "iwt_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kalite ve Stil Bir Arada",
+            "heading_size": "h1"
+          }
+        },
+        "iwt_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vision Pro Shopify olarak, her detayı özenle tasarlanmış premium ürünler sunuyoruz. Modern yaşam tarzınıza uygun koleksiyonlarımızla tanışın.</p>",
+            "text_style": "body"
+          }
+        },
+        "iwt_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Daha Fazla Bilgi",
+            "button_link": "/pages/hakkimizda",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["iwt_heading", "iwt_text", "iwt_button"],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "test_1": {
+          "type": "column",
+          "settings": {
+            "title": "Harika bir deneyim!",
+            "text": "<p>Ürün kalitesi ve kargo hızı beklentilerimin çok üzerindeydi. Kesinlikle tavsiye ederim.</p>",
+            "author": "<em><strong>Ayşe K.</strong></em>"
+          }
+        },
+        "test_2": {
+          "type": "column",
+          "settings": {
+            "title": "Mükemmel hizmet",
+            "text": "<p>Müşteri hizmetleri çok ilgili ve yardımsever. Ürünler tam tarif edildiği gibi geldi.</p>",
+            "author": "<em><strong>Mehmet Y.</strong></em>"
+          }
+        },
+        "test_3": {
+          "type": "column",
+          "settings": {
+            "title": "Tekrar alışveriş yapacağım",
+            "text": "<p>Tasarım ve kalite açısından piyasadaki en iyi mağazalardan biri. Çok memnun kaldım.</p>",
+            "author": "<em><strong>Zeynep A.</strong></em>"
+          }
+        }
+      },
+      "block_order": ["test_1", "test_2", "test_3"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Müşterilerimiz Ne Diyor?",
+        "heading_size": "h1",
+        "text": "",
+        "color_scheme": "background-1",
+        "style": "cards",
+        "image_width": "full",
+        "image_ratio": "square",
+        "column_alignment": "center",
+        "show_stars": true,
+        "stars_color": "#ffd700",
+        "show_quotes": true,
+        "quotes_color_scheme": "background-2",
+        "cards_color_scheme": "background-1",
+        "type": "slide",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "arrows_color_scheme": "accent-1",
+        "transparent_arrows": true,
+        "dots_color_scheme": "accent-1",
+        "desktop_full_page": false,
+        "columns_desktop": 3,
+        "slider_desktop": false,
+        "per_move_desktop": 1,
+        "desktop_spacing": 32,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "slider_mobile": true,
+        "enable_mobile_preview": false,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "under",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "nl_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vizyonu İlk Siz Keşfedin",
+            "heading_size": "h0"
+          }
+        },
+        "nl_text": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Yeni koleksiyonlar, özel davetler ve sınırlı fırsatlar için bültenimize katılın.</p>"
+          }
+        },
+        "nl_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["nl_heading", "nl_text", "nl_form"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "button_type": "solid",
+        "button_label": "Abone Ol",
+        "button_style_secondary": false,
+        "color_scheme": "background-2",
+        "overlay_opacity": 40,
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "home_ticker": {
+      "type": "horizontal-ticker",
+      "blocks": {
+        "tick_1": { "type": "text", "settings": { "title": "Ücretsiz Kargo" } },
+        "tick_2": { "type": "text", "settings": { "title": "Orijinal Ürün Garantisi" } },
+        "tick_3": { "type": "text", "settings": { "title": "14 Gün İade" } },
+        "tick_4": { "type": "text", "settings": { "title": "Güvenli Ödeme" } },
+        "tick_5": { "type": "text", "settings": { "title": "Vision Pro Shopify" } }
+      },
+      "block_order": ["tick_1", "tick_2", "tick_3", "tick_4", "tick_5"],
+      "settings": {
+        "visibility": "always-display",
+        "speed": 2,
+        "mobile_spacing": 40,
+        "desktop_spacing": 80,
+        "color_scheme": "accent-1",
+        "mobile_text_size": 14,
+        "desktop_text_size": 18,
+        "italic_text": false,
+        "uppercase_text": true,
+        "bold_text": true,
+        "mobile_image_height": 26,
+        "desktop_image_height": 40,
+        "mobile_padding_top": 16,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "hero_parallax",
+    "home_ticker",
+    "vision_3d",
+    "featured_products",
+    "icon_features",
+    "image_text",
+    "testimonials",
+    "newsletter"
+  ]
+}

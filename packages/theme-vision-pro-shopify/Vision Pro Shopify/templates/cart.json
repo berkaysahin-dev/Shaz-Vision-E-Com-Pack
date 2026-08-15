@@ -1,0 +1,126 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "dec6ac13-eef3-4b4c-900a-e550eb977500": {
+          "type": "discount_field",
+          "disabled": true,
+          "settings": {}
+        },
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "dec6ac13-eef3-4b4c-900a-e550eb977500",
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {}
+    },
+    "cart_trust": {
+      "type": "icon-bar",
+      "blocks": {
+        "t1": {
+          "type": "column",
+          "settings": {
+            "icon": "verified_user",
+            "filled_icon": true,
+            "title": "Güvenli Ödeme",
+            "text": "<p>256-bit SSL ile korunan ödeme altyapısı.</p>"
+          }
+        },
+        "t2": {
+          "type": "column",
+          "settings": {
+            "icon": "local_shipping",
+            "filled_icon": true,
+            "title": "Hızlı & Güvenli Kargo",
+            "text": "<p>Siparişleriniz özenle paketlenir, hızlı teslim edilir.</p>"
+          }
+        },
+        "t3": {
+          "type": "column",
+          "settings": {
+            "icon": "sync",
+            "filled_icon": true,
+            "title": "14 Gün İade",
+            "text": "<p>Koşulsuz iade ve değişim garantisi.</p>"
+          }
+        },
+        "t4": {
+          "type": "column",
+          "settings": {
+            "icon": "support_agent",
+            "filled_icon": true,
+            "title": "7/24 Destek",
+            "text": "<p>Sorularınız için her zaman yanınızdayız.</p>"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Güvenle Alışveriş Yapın",
+        "heading_size": "h1",
+        "text": "<p>Binlerce müşterinin tercih ettiği güvenilir alışveriş deneyimi.</p>",
+        "color_scheme": "background-2",
+        "icon_layout": "vertical",
+        "icon_size": "large",
+        "icon_color": "accent-1",
+        "cards_color_scheme": "background-1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "slider_desktop": false,
+        "slider_mobile": false,
+        "demo_images": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Yeni ürünlerden haberdar olun",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Özel fırsatlar ve yeni koleksiyonlar için bültenimize katılın.</p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["heading", "paragraph", "email-form"],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 68,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["cart-items", "cart-footer", "cart_trust", "newsletter"]
+}

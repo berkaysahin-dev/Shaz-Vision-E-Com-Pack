@@ -1,0 +1,186 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-review-{{ block.id }} {
+    padding: 24px;
+    border-radius: {{ block.settings.border_radius | default: 20 }}px;
+    background-color: {{ block.settings.bg_color | default: '#ffffff' }};
+    border: 1px solid {{ block.settings.border_color | default: '#e2e8f0' }};
+  }
+  .vision-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .vision-review-score {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .vision-review-rating {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--vision-color-text);
+  }
+  .vision-review-stars {
+    display: flex;
+    color: {{ block.settings.color_stars | default: '#fbbf24' }};
+  }
+  .vision-review-stars svg {
+    width: 20px;
+    height: 20px;
+  }
+  .vision-review-total {
+    font-size: 13px;
+    color: var(--vision-color-text-muted);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .vision-review-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .vision-review-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--vision-color-text);
+    font-weight: 600;
+  }
+  .vision-review-bar-bg {
+    flex-grow: 1;
+    height: 8px;
+    background-color: var(--vision-color-border);
+    border-radius: var(--vision-radius-full);
+    overflow: hidden;
+  }
+  .vision-review-bar-fill {
+    height: 100%;
+    background-color: {{ block.settings.color_bars | default: '#6366f1' }};
+    border-radius: var(--vision-radius-full);
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-review-{{ block.id }} vision-glass vision-3d-card">
+    {% if block.settings.title != blank %}
+      <h3 class="vision-font-bold vision-text-lg" style="margin-bottom: 16px;">{{ block.settings.title }}</h3>
+    {% endif %}
+    
+    <div class="vision-review-header">
+      <div class="vision-review-score">
+        <div class="vision-review-rating">{{ block.settings.rating }}</div>
+        <div>
+          <div class="vision-review-stars">
+            {% for i in (1..5) %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" /></svg>
+            {% endfor %}
+          </div>
+          <div class="vision-review-total">
+            {{ block.settings.reviews_count_text | replace: '[count]', block.settings.total_reviews | default: '128 değerlendirmeye göre' }}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="vision-review-bars">
+      <div class="vision-review-bar-row">
+        <span>5 ★</span>
+        <div class="vision-review-bar-bg"><div class="vision-review-bar-fill" style="width: 85%;"></div></div>
+        <span>85%</span>
+      </div>
+      <div class="vision-review-bar-row">
+        <span>4 ★</span>
+        <div class="vision-review-bar-bg"><div class="vision-review-bar-fill" style="width: 10%;"></div></div>
+        <span>10%</span>
+      </div>
+      <div class="vision-review-bar-row">
+        <span>3 ★</span>
+        <div class="vision-review-bar-bg"><div class="vision-review-bar-fill" style="width: 3%;"></div></div>
+        <span>3%</span>
+      </div>
+      <div class="vision-review-bar-row">
+        <span>2 ★</span>
+        <div class="vision-review-bar-bg"><div class="vision-review-bar-fill" style="width: 1%;"></div></div>
+        <span>1%</span>
+      </div>
+      <div class="vision-review-bar-row">
+        <span>1 ★</span>
+        <div class="vision-review-bar-bg"><div class="vision-review-bar-fill" style="width: 1%;"></div></div>
+        <span>1%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Yorum Özeti",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Başlık",
+      "default": "Müşteri Yorumları"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Ortalama Puan",
+      "default": "4.8"
+    },
+    {
+      "type": "number",
+      "id": "total_reviews",
+      "label": "Toplam Yorum Sayısı",
+      "default": 128
+    },
+    {
+      "type": "text",
+      "id": "reviews_count_text",
+      "label": "Yorum Sayısı Metni ([count] yerine sayı gelir)",
+      "default": "[count] değerlendirmeye göre"
+    },
+    {
+      "type": "color",
+      "id": "color_stars",
+      "label": "Yıldız Rengi",
+      "default": "#fbbf24"
+    },
+    {
+      "type": "color",
+      "id": "color_bars",
+      "label": "Çubuk Dolgu Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arka Plan Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Çerçeve Rengi",
+      "default": "#e2e8f0"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Kenar Yuvarlatması",
+      "default": 20
+    }
+  ]
+}
+{% endschema %}

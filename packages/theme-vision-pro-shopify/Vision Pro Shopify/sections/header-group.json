@@ -1,0 +1,97 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announce_1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Yeni sezon koleksiyonu — Ücretsiz kargo fırsatını kaçırmayın!",
+            "text_alignment": "center",
+            "mobile_text_size": 14,
+            "desktop_text_size": 16,
+            "icon": "local_shipping",
+            "filled_icon": false,
+            "mobile_icon_size": 18,
+            "desktop_icon_size": 22,
+            "desktop_layout": "horizontal",
+            "mobile_layout": "horizontal",
+            "hidden_products": "",
+            "enable_specific_display": false,
+            "displayed_products": ""
+          }
+        }
+      },
+      "block_order": ["announce_1"],
+      "settings": {
+        "columns_desktop": 1,
+        "columns_mobile": 1,
+        "desktop_spacing": 28,
+        "mobile_spacing": 16,
+        "show_separator": false,
+        "color_scheme": "accent-1",
+        "slider_mobile": true,
+        "slider_desktop": false,
+        "type": "loop",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "header_ticker": {
+      "type": "horizontal-ticker",
+      "blocks": {
+        "ht_1": { "type": "text", "settings": { "title": "Vision Pro Shopify" } },
+        "ht_2": { "type": "text", "settings": { "title": "Premium Kalite" } },
+        "ht_3": { "type": "text", "settings": { "title": "Hızlı Teslimat" } }
+      },
+      "block_order": ["ht_1", "ht_2", "ht_3"],
+      "settings": {
+        "visibility": "always-display",
+        "speed": 1,
+        "mobile_spacing": 60,
+        "desktop_spacing": 100,
+        "color_scheme": "accent-1",
+        "mobile_text_size": 14,
+        "desktop_text_size": 18,
+        "italic_text": true,
+        "uppercase_text": false,
+        "bold_text": false,
+        "mobile_image_height": 26,
+        "desktop_image_height": 40,
+        "mobile_padding_top": 12,
+        "mobile_padding_bottom": 12,
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 16
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "logo_position": "middle-center",
+        "menu": "main-menu",
+        "highlight_active_link": false,
+        "highlighted_link_color_scheme": "accent-1",
+        "products_mega_menu_links": "",
+        "products_mega_menu_display_collection_products": true,
+        "products_mega_menu_display_collection_images": true,
+        "products_mega_menu_display_collection_images_on_mobile": true,
+        "mobile_menu_title": "Menü",
+        "secondary_menu": "",
+        "menu_color_scheme": "background-1",
+        "mobile_logo_position": "center",
+        "display_search": true,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": ["announcement_bar", "header_ticker", "header"]
+}

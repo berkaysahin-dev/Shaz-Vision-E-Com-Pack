@@ -1,0 +1,80 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer_brand": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true,
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        },
+        "footer_shop": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Mağaza",
+            "menu": "footer",
+            "width_desktop": 2,
+            "width_mobile": "1"
+          }
+        },
+        "footer_support": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Müşteri Hizmetleri",
+            "menu": "footer",
+            "width_desktop": 2,
+            "width_mobile": "1"
+          }
+        },
+        "footer_contact": {
+          "type": "text",
+          "settings": {
+            "heading": "İletişim",
+            "subtext": "<p><strong>E-posta</strong><br>destek@visionproshop.com</p><p><strong>Telefon</strong><br>+90 (212) 000 00 00</p><p><strong>Adres</strong><br>İstanbul, Türkiye</p><p><strong>Çalışma Saatleri</strong><br>Pzt–Cmt: 09:00 – 18:00</p>",
+            "width_desktop": 2,
+            "width_mobile": "2"
+          }
+        },
+        "footer_newsletter": {
+          "type": "email_signup",
+          "settings": {
+            "heading": "Bülten",
+            "subtext": "<p>Özel lansmanlar ve seçili fırsatlardan haberdar olun. Haftada en fazla bir e-posta.</p>",
+            "button_type": "solid",
+            "button_label": "Abone Ol",
+            "button_style_secondary": false,
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        }
+      },
+      "block_order": [
+        "footer_brand",
+        "footer_shop",
+        "footer_support",
+        "footer_contact",
+        "footer_newsletter"
+      ],
+      "settings": {
+        "color_scheme": "inverse",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "enabled_payment_types": "visa,master,apple_pay,google_pay",
+        "show_policy": true,
+        "branding_text": "shazvision.com",
+        "margin_top": 0,
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": ["footer"]
+}

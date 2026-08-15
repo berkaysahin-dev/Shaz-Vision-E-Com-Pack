@@ -1,0 +1,210 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-timeline-{{ block.id }} {
+    padding: {{ block.settings.padding | default: 16 }}px 0;
+    position: relative;
+  }
+  .vision-timeline-bar-bg {
+    position: absolute;
+    top: {{ block.settings.padding | default: 16 | plus: 20 }}px;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background-color: var(--vision-color-border);
+    z-index: 1;
+    border-radius: 2px;
+  }
+  .vision-timeline-bar-fill {
+    position: absolute;
+    top: {{ block.settings.padding | default: 16 | plus: 20 }}px;
+    left: 20px;
+    width: {{ block.settings.progress | default: 50 }}%;
+    height: 4px;
+    background-color: {{ block.settings.active_color | default: '#6366f1' }};
+    z-index: 2;
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+  .vision-timeline-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+  }
+  .vision-timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 33%;
+    text-align: center;
+  }
+  .vision-timeline-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--vision-color-bg);
+    border: 2px solid var(--vision-color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  .vision-timeline-dot.active {
+    border-color: {{ block.settings.active_color | default: '#6366f1' }};
+    background-color: {{ block.settings.active_color | default: '#6366f1' }};
+    color: white;
+  }
+  .vision-timeline-dot.active svg {
+    width: 14px;
+    height: 14px;
+  }
+  .vision-timeline-title {
+    font-size: {{ block.settings.text_size | default: 14 }}px;
+    font-weight: 600;
+    color: {{ block.settings.text_color | default: '#0f172a' }};
+  }
+  .vision-timeline-date {
+    font-size: {{ block.settings.text_size | default: 14 | minus: 2 }}px;
+    color: {{ block.settings.text_color | default: '#0f172a' }};
+    opacity: 0.7;
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-timeline-{{ block.id }}">
+    {% if block.settings.title != blank %}
+      <p class="vision-text-sm vision-font-bold" style="margin-bottom: 24px; color: {{ block.settings.text_color | default: '#0f172a' }};">{{ block.settings.title }}</p>
+    {% endif %}
+    
+    <div style="position: relative;">
+      <div class="vision-timeline-bar-bg"></div>
+      <div class="vision-timeline-bar-fill"></div>
+      
+      <div class="vision-timeline-steps">
+        <div class="vision-timeline-step">
+          <div class="vision-timeline-dot active">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          </div>
+          <span class="vision-timeline-title">{{ block.settings.label_ordered | default: 'Sipariş Alındı' }}</span>
+          <span class="vision-timeline-date">{{ block.settings.today_text | default: 'Bugün' }}</span>
+        </div>
+        
+        <div class="vision-timeline-step">
+          <div class="vision-timeline-dot {% if block.settings.progress >= 50 %}active{% endif %}">
+            {% if block.settings.progress >= 50 %}
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+            {% endif %}
+          </div>
+          <span class="vision-timeline-title">{{ block.settings.label_shipped | default: 'Kargoya Verildi' }}</span>
+          <span class="vision-timeline-date">{{ block.settings.shipped_date | default: '1-2 gün içinde' }}</span>
+        </div>
+        
+        <div class="vision-timeline-step">
+          <div class="vision-timeline-dot {% if block.settings.progress >= 100 %}active{% endif %}">
+            {% if block.settings.progress >= 100 %}
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+            {% endif %}
+          </div>
+          <span class="vision-timeline-title">{{ block.settings.label_delivered | default: 'Teslim Edildi' }}</span>
+          <span class="vision-timeline-date">{{ block.settings.delivered_date | default: '3-5 gün içinde' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Teslimat Süreci",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Başlık",
+      "default": "Beklenen Teslimat Süreci"
+    },
+    {
+      "type": "range",
+      "id": "progress",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "İlerleme Çubuğu",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "label_ordered",
+      "label": "1. Aşama Metni",
+      "default": "Sipariş Alındı"
+    },
+    {
+      "type": "text",
+      "id": "today_text",
+      "label": "1. Aşama Alt Metni",
+      "default": "Bugün"
+    },
+    {
+      "type": "text",
+      "id": "label_shipped",
+      "label": "2. Aşama Metni",
+      "default": "Kargoya Verildi"
+    },
+    {
+      "type": "text",
+      "id": "shipped_date",
+      "label": "2. Aşama Alt Metni",
+      "default": "1-2 gün içinde"
+    },
+    {
+      "type": "text",
+      "id": "label_delivered",
+      "label": "3. Aşama Metni",
+      "default": "Teslim Edildi"
+    },
+    {
+      "type": "text",
+      "id": "delivered_date",
+      "label": "3. Aşama Alt Metni",
+      "default": "3-5 gün içinde"
+    },
+    {
+      "type": "color",
+      "id": "active_color",
+      "label": "Aktif Renk",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Yazı Rengi",
+      "default": "#0f172a"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Yazı Boyutu",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Dikey Boşluk",
+      "default": 16
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,122 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-ui.js' | asset_url }}" defer="defer"></script>
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-fbt-container" style="background: {{ block.settings.bg_color | default: '#ffffff' }}; border-color: {{ block.settings.border_color | default: '#e2e8f0' }}; border-radius: {{ block.settings.border_radius | default: 16 }}px; margin-bottom: {{ block.settings.margin_bottom | default: 24 }}px;">
+    <div class="vision-fbt-header">
+      <h3 class="vision-fbt-title">
+        <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span>{{ block.settings.title | default: 'Birlikte Sık Alınan Ürünler' }}</span>
+      </h3>
+      <span class="vision-fbt-save-pill">%{{ block.settings.discount_percent | default: 15 }} İndirimli Paket</span>
+    </div>
+
+    <div class="vision-fbt-grid">
+      <div class="vision-fbt-item">
+        {% if product.featured_image %}
+          <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" class="vision-fbt-img" width="90" height="90" loading="lazy">
+        {% endif %}
+        <span class="vision-fbt-item-title">{{ product.title | default: 'Mevcut Ürün' }}</span>
+        <span class="vision-fbt-item-price" style="color: {{ block.settings.accent_color | default: '#6366f1' }};">{{ product.price | default: 29900 | money }}</span>
+      </div>
+
+      <div class="vision-fbt-plus">+</div>
+
+      <div class="vision-fbt-item">
+        {% if block.settings.bundle_product_1.featured_image %}
+          <img src="{{ block.settings.bundle_product_1.featured_image | image_url: width: 200 }}" alt="{{ block.settings.bundle_product_1.title | escape }}" class="vision-fbt-img" width="90" height="90" loading="lazy">
+        {% else %}
+          <div class="vision-fbt-img" style="display:flex; align-items:center; justify-content:center; color:#94a3b8;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+        {% endif %}
+        <span class="vision-fbt-item-title">{{ block.settings.bundle_product_1.title | default: 'Tamamlayıcı Ürün' }}</span>
+        <span class="vision-fbt-item-price" style="color: {{ block.settings.accent_color | default: '#6366f1' }};">{{ block.settings.bundle_product_1.price | default: 14900 | money }}</span>
+      </div>
+    </div>
+
+    <div class="vision-fbt-action-box">
+      <div class="vision-fbt-total-box">
+        <span class="vision-fbt-total-label">Paket Özel Fiyatı:</span>
+        <div>
+          <span class="vision-fbt-total-price">380,80 TL</span>
+          <span class="vision-fbt-original-price">448,00 TL</span>
+        </div>
+      </div>
+      <button type="button" class="vision-fbt-add-btn" style="background: {{ block.settings.accent_color | default: '#6366f1' }};" onclick="VisionUI.addBundleToCart('{{ product.selected_or_first_available_variant.id }}', '{{ block.settings.bundle_product_1.selected_or_first_available_variant.id }}', this)">
+        <svg class="vision-inline-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+        <span>Paketi Sepete Ekle</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Birlikte Sık Alınanlar",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "javascript": "vision-ui.js",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Başlık",
+      "default": "Birlikte Sık Alınan Ürünler"
+    },
+    {
+      "type": "product",
+      "id": "bundle_product_1",
+      "label": "Tamamlayıcı Ürün"
+    },
+    {
+      "type": "range",
+      "id": "discount_percent",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "%",
+      "label": "Paket İndirimi Yüzdesi",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Vurgu Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arka Plan Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Çerçeve Rengi",
+      "default": "#e2e8f0"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Kenar Yuvarlatması",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Alt Boşluk",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

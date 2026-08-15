@@ -1,0 +1,163 @@
+{
+  "name": "Vision Product UI",
+  "blocks": {
+    "trust_badges": {
+      "name": "Trust Badges",
+      "settings": {
+        "title": "Heading",
+        "title_default": "Why buy from us?",
+        "icon": "Icon",
+        "text": "Text",
+        "badge_1_default": "Secure Checkout",
+        "badge_2_default": "Fast Shipping",
+        "badge_3_default": "Easy Returns",
+        "badge_4_default": "Satisfaction Guarantee",
+        "alignment": "Alignment",
+        "icon_size": "Icon Size",
+        "text_size": "Text Size",
+        "badge_width": "Badge Width",
+        "padding": "Vertical Padding",
+        "icon_color": "Icon Color",
+        "text_color": "Text Color",
+        "show_border": "Show Border Box",
+        "bg_color": "Background Color"
+      }
+    },
+    "product_benefits": {
+      "name": "Product Benefits",
+      "settings": {
+        "icon": "Icon",
+        "title": "Title",
+        "desc": "Description",
+        "benefit_1_title": "Premium Quality",
+        "benefit_1_desc": "Made with the finest materials.",
+        "benefit_2_title": "Eco-Friendly",
+        "benefit_2_desc": "100% sustainable packaging.",
+        "benefit_3_title": "Customer Loved",
+        "benefit_3_desc": "Over 10,000 happy customers.",
+        "layout": "Layout",
+        "gap": "Spacing Between Items",
+        "padding": "Vertical Padding",
+        "icon_size": "Icon Box Size",
+        "icon_color": "Icon Color",
+        "icon_bg_color": "Icon Background Color",
+        "title_size": "Title Size",
+        "desc_size": "Description Size",
+        "text_color": "Text Color"
+      }
+    },
+    "delivery_timeline": {
+      "name": "Delivery Timeline",
+      "settings": {
+        "title": "Heading",
+        "title_default": "Expected Delivery",
+        "progress": "Timeline Progress",
+        "progress_info": "0 = Ordered, 50 = Shipped, 100 = Delivered",
+        "shipped_date": "Shipped Text",
+        "shipped_default": "In 1-2 days",
+        "delivered_date": "Delivered Text",
+        "delivered_default": "In 3-5 days",
+        "active_color": "Active Color",
+        "text_color": "Text Color",
+        "text_size": "Text Size",
+        "padding": "Vertical Padding",
+        "label_ordered": "Ordered",
+        "label_shipped": "Shipped",
+        "label_delivered": "Delivered"
+      }
+    },
+    "stock_indicator": {
+      "name": "Stock Indicator",
+      "settings": {
+        "message": "Message",
+        "message_default": "Hurry! Only [stock] left in stock.",
+        "stock_number": "Simulated Stock Number",
+        "show_icon": "Show Fire Icon",
+        "animate": "Animate Icon",
+        "show_bar": "Show Progress Bar",
+        "stock_percentage": "Bar Fill Percentage",
+        "color": "Accent Color",
+        "text_color": "Text Color",
+        "text_size": "Text Size",
+        "bar_height": "Bar Height",
+        "padding": "Vertical Padding"
+      }
+    },
+    "interactive_hotspot": {
+      "name": "Interactive Hotspot",
+      "settings": {
+        "image": "Base Image",
+        "show_hotspot": "Enable Hotspot",
+        "top": "Vertical Position",
+        "left": "Horizontal Position",
+        "text": "Tooltip Text",
+        "text_1_default": "Premium Material",
+        "text_2_default": "Ergonomic Design",
+        "text_3_default": "Durable Finish",
+        "hotspot_color": "Hotspot Color",
+        "tooltip_bg": "Tooltip Background",
+        "tooltip_color": "Tooltip Text Color",
+        "margin": "Vertical Margin"
+      }
+    },
+    "before_after": {
+      "name": "Before & After Slider",
+      "settings": {
+        "image_before": "Before Image",
+        "image_after": "After Image",
+        "label_before": "Before Label",
+        "label_after": "After Label",
+        "slider_color": "Slider Color",
+        "border_radius": "Border Radius",
+        "height": "Container Height (px)"
+      }
+    },
+    "review_summary": {
+      "name": "Review Summary",
+      "settings": {
+        "title": "Title",
+        "title_default": "Customer Reviews",
+        "rating": "Average Rating (out of 5)",
+        "total_reviews": "Total Reviews",
+        "color_stars": "Star Color",
+        "color_bars": "Bar Fill Color",
+        "bg_color": "Background Color"
+      }
+    },
+    "product_comparison": {
+      "name": "Product Comparison",
+      "settings": {
+        "title": "Title",
+        "title_default": "Why Choose Us?",
+        "our_brand": "Our Brand Name",
+        "competitor": "Competitor Name",
+        "feature_1": "Feature 1",
+        "feature_2": "Feature 2",
+        "feature_3": "Feature 3",
+        "brand_color": "Brand Highlight Color",
+        "bg_color": "Table Background"
+      }
+    },
+    "app_embed": {
+      "name": "Vision Global App Settings",
+      "settings": {
+        "primary_color": "Primary Accent Color",
+        "enable_sticky_buy": "Enable Sticky Buy Bar",
+        "enable_sales_toast": "Enable Sales Notification Toast",
+        "enable_whatsapp": "Enable WhatsApp Button"
+      }
+    },
+    "size_chart_modal": {
+      "name": "Size Chart Modal"
+    },
+    "live_viewers": {
+      "name": "Live Viewers Counter"
+    },
+    "exit_intent_popup": {
+      "name": "Exit-Intent Discount Popup"
+    },
+    "frequently_bought_together": {
+      "name": "Frequently Bought Together"
+    }
+  }
+}

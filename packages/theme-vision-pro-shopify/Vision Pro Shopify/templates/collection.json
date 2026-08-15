@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "catalog_hero": {
+      "type": "rich-text",
+      "blocks": {
+        "cat_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Ürün Kataloğu</p>",
+            "heading_size": "h0"
+          }
+        },
+        "cat_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Premium kalite ürünlerimizi keşfedin. Filtreleme ve sıralama seçenekleriyle aradığınızı kolayca bulun.</p>"
+          }
+        }
+      },
+      "block_order": ["cat_heading", "cat_text"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 28
+      }
+    },
+    "catalog_features": {
+      "type": "icon-bar",
+      "blocks": {
+        "cat_f1": {
+          "type": "column",
+          "settings": {
+            "icon": "filter_list",
+            "filled_icon": false,
+            "title": "Akıllı Filtreleme",
+            "text": "<p>Beden, renk ve fiyata göre filtreleyin.</p>"
+          }
+        },
+        "cat_f2": {
+          "type": "column",
+          "settings": {
+            "icon": "inventory_2",
+            "filled_icon": false,
+            "title": "Stokta Olanlar",
+            "text": "<p>Anlık stok durumu gösterimi.</p>"
+          }
+        },
+        "cat_f3": {
+          "type": "column",
+          "settings": {
+            "icon": "sort",
+            "filled_icon": false,
+            "title": "Kolay Sıralama",
+            "text": "<p>Fiyat ve popülerliğe göre sıralayın.</p>"
+          }
+        },
+        "cat_f4": {
+          "type": "column",
+          "settings": {
+            "icon": "shopping_bag",
+            "filled_icon": false,
+            "title": "Hızlı Sepet",
+            "text": "<p>Tek tıkla sepete ekleme.</p>"
+          }
+        }
+      },
+      "block_order": ["cat_f1", "cat_f2", "cat_f3", "cat_f4"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "heading_size": "h2",
+        "text": "",
+        "color_scheme": "background-1",
+        "icon_layout": "vertical",
+        "icon_size": "large",
+        "icon_color": "accent-1",
+        "cards_color_scheme": "background-2",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "slider_desktop": false,
+        "slider_mobile": false,
+        "demo_images": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "main-collection-product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 48
+      }
+    },
+    "catalog_newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "nl_h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Yeni Ürünlerden Haberdar Olun",
+            "heading_size": "h1"
+          }
+        },
+        "nl_p": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Katalog güncellemeleri ve özel indirimler için bültenimize abone olun.</p>"
+          }
+        },
+        "nl_f": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["nl_h", "nl_p", "nl_f"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "button_type": "solid",
+        "button_label": "Abone Ol",
+        "button_style_secondary": false,
+        "color_scheme": "inverse",
+        "overlay_opacity": 40,
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "catalog_hero",
+    "catalog_features",
+    "main-collection-banner",
+    "main-collection-product-grid",
+    "catalog_newsletter"
+  ]
+}

@@ -1,0 +1,163 @@
+/* 
+  Vision Product UI Library - Ultra Premium 3D CSS System v2.1
+  High-converting glassmorphic styles, 3D tilt micro-animations, vector SVG tokens.
+*/
+
+:root {
+  --vision-color-primary: #6366f1;
+  --vision-color-primary-hover: #4f46e5;
+  --vision-color-text: #0f172a;
+  --vision-color-text-muted: #64748b;
+  --vision-color-bg: #ffffff;
+  --vision-color-bg-subtle: #f8fafc;
+  --vision-color-border: #e2e8f0;
+  --vision-color-success: #10b981;
+  --vision-color-warning: #f59e0b;
+  --vision-color-danger: #ef4444;
+  
+  --vision-radius-sm: 8px;
+  --vision-radius-md: 14px;
+  --vision-radius-lg: 20px;
+  --vision-radius-xl: 28px;
+  --vision-radius-full: 9999px;
+  
+  --vision-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.03);
+  --vision-shadow-md: 0 6px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --vision-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --vision-shadow-glass: 0 12px 32px 0 rgba(31, 38, 135, 0.08);
+  
+  --vision-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Block Container */
+.vision-block {
+  margin-bottom: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--vision-color-text);
+  box-sizing: border-box;
+}
+
+/* SVG Inline Alignment Helper */
+.vision-inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* 3D Tilt Card Component Token */
+.vision-3d-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.vision-3d-card:hover {
+  box-shadow: 0 20px 45px -12px rgba(99, 102, 241, 0.22), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+/* Glassmorphism Token */
+.vision-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--vision-shadow-glass), inset 0 1px 0 rgba(255,255,255,1);
+  position: relative;
+  transition: var(--vision-transition);
+}
+
+/* Sticky Buy Bar */
+.vision-sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+  padding: 12px 24px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.vision-sticky-bar--bottom { bottom: 0; }
+.vision-sticky-bar--top { top: 0; }
+.vision-sticky-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.vision-sticky-info { display: flex; align-items: center; gap: 12px; }
+.vision-sticky-img { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; }
+.vision-sticky-titles { display: flex; flex-direction: column; }
+.vision-sticky-title { font-weight: 600; font-size: 14px; color: #1e293b; }
+.vision-sticky-price { font-size: 13px; color: #64748b; font-weight: 500; }
+.vision-sticky-btn { padding: 10px 24px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; white-space: nowrap; transition: transform 0.2s ease; }
+.vision-sticky-btn:hover { transform: translateY(-1px); }
+
+/* Sales Toast */
+.vision-toast { position: fixed; bottom: 24px; left: 24px; z-index: 9998; background: #ffffff; border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.06); animation: visionSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); max-width: 340px; }
+.vision-toast-icon { font-size: 22px; display: flex; align-items: center; }
+.vision-toast-text { margin: 0; font-size: 13px; font-weight: 600; color: #0f172a; line-height: 1.3; }
+.vision-toast-time { font-size: 11px; color: #64748b; }
+.vision-toast-close { background: none; border: none; font-size: 18px; color: #94a3b8; cursor: pointer; padding: 0 4px; }
+
+/* WhatsApp Floating Button */
+.vision-whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 9997; background: #25D366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); transition: transform 0.3s ease; }
+.vision-whatsapp-float:hover { transform: scale(1.1); }
+
+/* Exit Intent Modal */
+.vision-exit-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 999999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 20px; }
+.vision-exit-modal-overlay.active { opacity: 1; visibility: visible; }
+.vision-exit-card { background: #ffffff; width: 100%; max-width: 480px; padding: 36px 28px; text-align: center; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); transform: scale(0.9) translateY(20px); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(255,255,255,0.8); overflow: hidden; }
+.vision-exit-modal-overlay.active .vision-exit-card { transform: scale(1) translateY(0); }
+.vision-exit-badge { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 12px; padding: 6px 14px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.vision-exit-title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; line-height: 1.25; }
+.vision-exit-desc { font-size: 14px; color: #64748b; margin: 0 0 24px 0; line-height: 1.5; }
+.vision-exit-coupon-box { background: #f8fafc; border: 2px dashed #6366f1; border-radius: 14px; padding: 16px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; gap: 12px; }
+.vision-exit-code { font-family: monospace; font-size: 20px; font-weight: 800; letter-spacing: 2px; }
+.vision-exit-copy-btn { color: #ffffff; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; transition: transform 0.2s ease; }
+.vision-exit-copy-btn:hover { transform: scale(1.04); }
+.vision-exit-timer { font-size: 13px; color: #94a3b8; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.vision-exit-timer .vision-timer-val { font-weight: 700; color: #dc2626; }
+.vision-exit-close { position: absolute; top: 16px; right: 16px; background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; color: #64748b; display: flex; align-items: center; justify-content: center; }
+
+/* Size Chart Modal */
+.vision-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 99999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.vision-modal-overlay.active { opacity: 1; visibility: visible; }
+.vision-modal-card { background: #ffffff; border-radius: 16px; width: 90%; max-width: 600px; max-height: 85vh; overflow-y: auto; padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(20px); transition: transform 0.3s ease; }
+.vision-modal-overlay.active .vision-modal-card { transform: translateY(0); }
+.vision-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
+.vision-modal-title { font-size: 18px; font-weight: 700; color: #0f172a; margin: 0; }
+.vision-modal-close { background: #f1f5f9; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #64748b; }
+.vision-size-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.vision-size-table th, .vision-size-table td { padding: 12px 16px; text-align: center; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+.vision-size-table th { background: #f8fafc; font-weight: 600; color: #334155; }
+.vision-size-table td { color: #475569; }
+
+/* Frequently Bought Together */
+.vision-fbt-container { padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+.vision-fbt-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.vision-fbt-title { font-size: 18px; font-weight: 700; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px; }
+.vision-fbt-save-pill { background: #dcfce7; color: #15803d; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+.vision-fbt-grid { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.vision-fbt-item { display: flex; flex-direction: column; align-items: center; width: 110px; text-align: center; position: relative; }
+.vision-fbt-img { width: 90px; height: 90px; object-fit: cover; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 8px; background: #f8fafc; }
+.vision-fbt-item-title { font-size: 12px; font-weight: 600; color: #334155; line-height: 1.3; height: 32px; overflow: hidden; margin-bottom: 4px; }
+.vision-fbt-item-price { font-size: 13px; font-weight: 700; }
+.vision-fbt-plus { font-size: 20px; font-weight: 700; color: #94a3b8; }
+.vision-fbt-action-box { background: #f8fafc; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.vision-fbt-total-box { display: flex; flex-direction: column; }
+.vision-fbt-total-label { font-size: 12px; color: #64748b; }
+.vision-fbt-total-price { font-size: 20px; font-weight: 800; color: #0f172a; }
+.vision-fbt-original-price { text-decoration: line-through; color: #94a3b8; font-size: 14px; margin-left: 6px; font-weight: 500; }
+.vision-fbt-add-btn { color: #ffffff; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; }
+.vision-fbt-add-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+@keyframes visionSlideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .vision-sticky-info { display: none; }
+  .vision-sticky-content { justify-content: center; }
+  .vision-sticky-form { width: 100%; }
+  .vision-sticky-btn { width: 100%; text-align: center; }
+  .vision-fbt-action-box { flex-direction: column; text-align: center; }
+  .vision-fbt-add-btn { width: 100%; }
+}

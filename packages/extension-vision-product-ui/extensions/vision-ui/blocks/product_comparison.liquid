@@ -1,0 +1,173 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-compare-{{ block.id }} {
+    padding: 24px;
+    background-color: {{ block.settings.bg_color | default: '#ffffff' }};
+    border-radius: {{ block.settings.border_radius | default: 24 }}px;
+    border: 1px solid {{ block.settings.border_color | default: '#e2e8f0' }};
+    overflow: hidden;
+  }
+  .vision-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  .vision-compare-table th, .vision-compare-table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--vision-color-border);
+  }
+  .vision-compare-table th:first-child, .vision-compare-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+  }
+  .vision-compare-table tr:last-child td {
+    border-bottom: none;
+  }
+  .vision-compare-brand {
+    background-color: {{ block.settings.brand_color | default: '#6366f1' }};
+    color: white;
+    border-radius: var(--vision-radius-md) var(--vision-radius-md) 0 0;
+    font-weight: 800;
+  }
+  .vision-compare-brand-col {
+    background-color: rgba(99, 102, 241, 0.06);
+  }
+  .vision-compare-icon-check {
+    color: {{ block.settings.brand_color | default: '#6366f1' }};
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+  }
+  .vision-compare-icon-cross {
+    color: var(--vision-color-text-muted);
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    opacity: 0.5;
+  }
+{%- endstyle -%}
+
+<div class="vision-block" {{ block.shopify_attributes }}>
+  <div class="vision-compare-{{ block.id }} vision-glass vision-3d-card">
+    {% if block.settings.title != blank %}
+      <h3 class="vision-text-center vision-font-bold vision-text-lg">{{ block.settings.title }}</h3>
+    {% endif %}
+    
+    <div style="overflow-x: auto;">
+      <table class="vision-compare-table">
+        <thead>
+          <tr>
+            <th>Özellikler</th>
+            <th class="vision-compare-brand">{{ block.settings.our_brand | default: 'Bizim Markamız' }}</th>
+            <th style="color: var(--vision-color-text-muted);">{{ block.settings.competitor | default: 'Diğer Markalar' }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ block.settings.feature_1 | default: '100% Premium Kalite' }}</td>
+            <td class="vision-compare-brand-col">
+              <svg class="vision-compare-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" /></svg>
+            </td>
+            <td>
+              <svg class="vision-compare-icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" /></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>{{ block.settings.feature_2 | default: 'Hızlı Kargo & Kolay İade' }}</td>
+            <td class="vision-compare-brand-col">
+              <svg class="vision-compare-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" /></svg>
+            </td>
+            <td>
+              <svg class="vision-compare-icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" /></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>{{ block.settings.feature_3 | default: '7/24 Müşteri Desteği' }}</td>
+            <td class="vision-compare-brand-col" style="border-radius: 0 0 var(--vision-radius-md) 0;">
+              <svg class="vision-compare-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" /></svg>
+            </td>
+            <td>
+              <svg class="vision-compare-icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" /></svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ürün Karşılaştırma",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Başlık",
+      "default": "Neden Bizi Seçmelisiniz?"
+    },
+    {
+      "type": "text",
+      "id": "our_brand",
+      "label": "Bizim Markamız",
+      "default": "Bizim Markamız"
+    },
+    {
+      "type": "text",
+      "id": "competitor",
+      "label": "Rakip Markalar",
+      "default": "Diğer Markalar"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Özellik 1",
+      "default": "100% Premium Kalite"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Özellik 2",
+      "default": "Hızlı Kargo & Kolay İade"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Özellik 3",
+      "default": "7/24 Müşteri Desteği"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Marka Vurgu Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Tablo Arka Planı",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Çerçeve Rengi",
+      "default": "#e2e8f0"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Kenar Yuvarlatması",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

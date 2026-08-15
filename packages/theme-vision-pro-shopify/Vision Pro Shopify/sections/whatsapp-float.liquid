@@ -1,0 +1,133 @@
+{% style %}
+  .whatsapp-float-{{ section.id }} {
+    --offset-x: {{ section.settings.offset_x | divided_by: 10.0 }}rem;
+    --offset-y: {{ section.settings.offset_y | divided_by: 10.0 }}rem;
+  }
+  @media screen and (max-width: 749px) {
+    .whatsapp-float-{{ section.id }} {
+      --offset-x: {{ section.settings.offset_x | times: 0.75 | divided_by: 10.0 }}rem;
+      --offset-y: {{ section.settings.offset_y | times: 0.75 | divided_by: 10.0 }}rem;
+    }
+  }
+{% endstyle %}
+
+{%- liquid
+  assign phone = section.settings.phone_number | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '+'
+  assign wa_text = section.settings.message
+  if template.name == 'product' and product
+    assign product_url = request.origin | append: product.url
+    assign wa_text = section.settings.product_message | replace: '[product]', product.title | replace: '[url]', product_url
+  endif
+-%}
+
+{% if section.settings.enable and phone != blank %}
+  <div class="whatsapp-float-wrap whatsapp-float-wrap--{{ section.settings.position }} whatsapp-float-{{ section.id }}">
+    {% if section.settings.show_label %}
+      <span class="whatsapp-float__label">{{ section.settings.label }}</span>
+    {% endif %}
+    <a
+      href="https://wa.me/{{ phone }}?text={{ wa_text | url_encode }}"
+      class="whatsapp-float color-{{ section.settings.color_scheme }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="{{ section.settings.label | default: 'WhatsApp' | escape }}"
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "WhatsApp Destek",
+  "limit": 1,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "WhatsApp butonunu göster",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "WhatsApp numarası",
+      "info": "Ülke kodu ile, örn: 905551234567",
+      "default": "905551234567"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Buton etiketi",
+      "default": "Canlı Destek"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_label",
+      "label": "Etiketi göster",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Varsayılan mesaj",
+      "default": "Merhaba, bilgi almak istiyorum."
+    },
+    {
+      "type": "textarea",
+      "id": "product_message",
+      "label": "Ürün sayfası mesajı",
+      "info": "[product] ve [url] kullanın",
+      "default": "Merhaba, [product] hakkında bilgi almak istiyorum: [url]"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "accent-1", "label": "Vurgu 1" },
+        { "value": "accent-2", "label": "Vurgu 2" },
+        { "value": "background-1", "label": "Arka plan 1" },
+        { "value": "background-2", "label": "Arka plan 2" },
+        { "value": "inverse", "label": "Ters" }
+      ],
+      "default": "accent-1",
+      "label": "Renk şeması"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "options": [
+        { "value": "bottom-left", "label": "Sol alt" },
+        { "value": "bottom-right", "label": "Sağ alt" }
+      ],
+      "default": "bottom-left",
+      "label": "Konum"
+    },
+    {
+      "type": "range",
+      "id": "offset_x",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Yatay boşluk",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "offset_y",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Dikey boşluk",
+      "default": 25
+    }
+  ]
+}
+{% endschema %}

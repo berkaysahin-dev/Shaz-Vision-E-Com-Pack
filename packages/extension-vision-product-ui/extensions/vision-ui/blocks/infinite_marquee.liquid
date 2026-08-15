@@ -1,0 +1,104 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .vision-marquee-{{ block.id }} {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: {{ block.settings.padding }}px 0;
+    background: {{ block.settings.bg_color }};
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+  }
+  .vision-marquee-content {
+    display: inline-block;
+    animation: visionMarquee {{ block.settings.speed }}s linear infinite;
+  }
+  .vision-marquee-item {
+    display: inline-block;
+    margin: 0 40px;
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .vision-marquee-item img {
+    height: {{ block.settings.text_size | times: 1.5 }}px;
+    vertical-align: middle;
+  }
+  @keyframes visionMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+{%- endstyle -%}
+
+<div class="vision-block" style="margin-bottom: 0;" {{ block.shopify_attributes }}>
+  <div class="vision-marquee-{{ block.id }} vision-glass" style="border-radius: 0;">
+    <div class="vision-marquee-content">
+      {%- for i in (1..10) -%}
+        <span class="vision-marquee-item">{{ block.settings.text }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Infinite Marquee",
+  "target": "section",
+  "stylesheet": "vision-ui.css",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Marquee Text",
+      "default": "✧ PREMIUM QUALITY ✧ FREE WORLDWIDE SHIPPING"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Animation Speed (Seconds)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{
+  "name": "vision-product-ui",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "shopify app dev",
+    "deploy": "shopify app deploy",
+    "info": "shopify app info",
+    "env": "shopify app env",
+    "shopify": "shopify"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@shopify/app": "latest",
+    "@shopify/cli": "latest"
+  }
+}

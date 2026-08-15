@@ -1,0 +1,206 @@
+{{ 'vision-ui.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'vision-ui.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  :root {
+    --vision-primary-color: {{ block.settings.primary_color | default: '#6366f1' }};
+    --vision-primary-hover: {{ block.settings.primary_color | default: '#4f46e5' }}dd;
+    {% if block.settings.custom_border_radius != blank %}
+      --vision-radius-md: {{ block.settings.custom_border_radius }}px;
+      --vision-radius-lg: {{ block.settings.custom_border_radius | plus: 4 }}px;
+    {% endif %}
+  }
+  {{ block.settings.custom_css }}
+{%- endstyle -%}
+
+{%- if block.settings.enable_sticky_buy -%}
+  <div id="vision-sticky-buy-bar" class="vision-sticky-bar vision-sticky-bar--{{ block.settings.sticky_position }}" style="display: none;">
+    <div class="vision-sticky-content">
+      <div class="vision-sticky-info">
+        {% if product.featured_image %}
+          <img src="{{ product.featured_image | image_url: width: 100 }}" alt="{{ product.title | escape }}" class="vision-sticky-img" width="50" height="50" loading="lazy">
+        {% endif %}
+        <div class="vision-sticky-titles">
+          <span class="vision-sticky-title">{{ product.title | default: 'Örnek Ürün' }}</span>
+          <span class="vision-sticky-price">{{ product.price | default: 29900 | money }}</span>
+        </div>
+      </div>
+      <div class="vision-sticky-actions">
+        <form method="post" action="{{ routes.cart_add_url }}" class="vision-sticky-form">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button type="submit" class="vision-btn vision-btn-primary vision-sticky-btn" style="background-color: {{ block.settings.sticky_btn_color | default: '#6366f1' }}; color: {{ block.settings.sticky_btn_text_color | default: '#ffffff' }};">
+            {{ block.settings.sticky_btn_text | default: 'Hemen Satın Al' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const stickyBar = document.getElementById('vision-sticky-buy-bar');
+      if (!stickyBar) return;
+      window.addEventListener('scroll', function() {
+        stickyBar.style.display = (window.scrollY > 400) ? 'block' : 'none';
+      }, { passive: true });
+    });
+  </script>
+{%- endif -%}
+
+{%- if block.settings.enable_sales_toast -%}
+  <div id="vision-sales-toast" class="vision-toast" style="display:none;">
+    <div class="vision-toast-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#6366f1" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+    </div>
+    <div class="vision-toast-body">
+      <p class="vision-toast-text">{{ block.settings.toast_template | default: 'Bir müşteri az önce bir ürün sipariş etti!' }}</p>
+      <span class="vision-toast-time">Az önce • Doğrulanmış Sipariş</span>
+    </div>
+    <button class="vision-toast-close" onclick="document.getElementById('vision-sales-toast').style.display='none'" aria-label="Kapat">&times;</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toast = document.getElementById('vision-sales-toast');
+      if (!toast) return;
+      setTimeout(function() {
+        toast.style.display = 'flex';
+        setTimeout(function() { toast.style.display = 'none'; }, {{ block.settings.toast_duration | default: 6 | times: 1000 }});
+      }, {{ block.settings.toast_delay | default: 4 | times: 1000 }});
+    });
+  </script>
+{%- endif -%}
+
+{%- if block.settings.enable_whatsapp -%}
+  <a href="https://wa.me/{{ block.settings.whatsapp_number }}" target="_blank" rel="noopener" class="vision-whatsapp-float" aria-label="WhatsApp Destek Hattı">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z"/></svg>
+  </a>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Vision Global Settings",
+  "target": "body",
+  "stylesheet": "vision-ui.css",
+  "javascript": "vision-ui.js",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Genel Marka & Stil Ayarları"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Ana Vurgu Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "range",
+      "id": "custom_border_radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Kenar Yuvarlatma",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Yapışkan Satın Al Barı"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_buy",
+      "label": "Yapışkan Barı Etkinleştir",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "sticky_position",
+      "label": "Bar Konumu",
+      "options": [
+        { "value": "bottom", "label": "Ekran Altı" },
+        { "value": "top", "label": "Ekran Üstü" }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "text",
+      "id": "sticky_btn_text",
+      "label": "Buton Metni",
+      "default": "Hemen Satın Al"
+    },
+    {
+      "type": "color",
+      "id": "sticky_btn_color",
+      "label": "Buton Arka Plan Rengi",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "sticky_btn_text_color",
+      "label": "Buton Yazı Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Canlı Satış Bildirimi"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sales_toast",
+      "label": "Satış Bildirimini Aç",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "toast_template",
+      "label": "Bildirim Metni",
+      "default": "Müşterimiz (İstanbul) az önce sipariş verdi!"
+    },
+    {
+      "type": "range",
+      "id": "toast_delay",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "sn",
+      "label": "Açılış Gecikmesi",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "toast_duration",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "sn",
+      "label": "Ekranda Kalma Süresi",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "WhatsApp Butonu"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_whatsapp",
+      "label": "WhatsApp Butonunu Göster",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "WhatsApp Numarası",
+      "default": "905000000000"
+    },
+    {
+      "type": "header",
+      "content": "Özel CSS Kodları"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Özel CSS Kodları"
+    }
+  ]
+}
+{% endschema %}

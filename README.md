@@ -1,272 +1,176 @@
 <div align="center">
 
-# 👁️ Vision Content Extractor
-### *Next-Gen Multi-Modal & E-Commerce Content Extraction Engine*
+# SHAZ VISION E-COM PACK
+### *All-in-One E-Commerce Management Suite, Storefront Theme & Extension Pack*
 
 <p align="center">
-  <strong>Transform raw web pages, documents, and product visuals into high-fidelity structured data.</strong>
+  <strong>Tek bir kurumsal komuta merkezinde toplanmış 8 e-ticaret aracı, veri işleme motorları, Shopify teması ve UI eklenti paketi.</strong>
 </p>
 
-[![Release](https://img.shields.io/badge/release-v0.1.0--preview-blue.svg?style=flat-square&logo=github)](https://github.com/berkaysahin-dev/Vision-Content-Extractor)
-[![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active%20development-orange.svg?style=flat-square)](https://github.com/berkaysahin-dev/Vision-Content-Extractor)
-[![Ecosystem](https://img.shields.io/badge/ecosystem-Shaz%20Vision-8A2BE2.svg?style=flat-square)](https://github.com/berkaysahin-dev)
+[![Next.js](https://img.shields.io/badge/Next.js-15.x-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Public%20Release-blue.svg?style=flat-square)](https://github.com/berkaysahin-dev/Shaz-Vision-E-Com-Pack)
 
 ---
 
-[Overview](#-overview) •
-[Key Features](#-key-features) •
-[Architecture](#-architecture) •
-[Quick Start](#-quick-start) •
-[E-Commerce Extraction Schema](#-e-commerce-extraction-schema) •
-[Roadmap](#-roadmap) •
-[Shaz Vision Ecosystem](#-shaz-vision-ecosystem) •
-[Contributing](#-contributing)
+[Genel Bakış](#genel-bakış) •
+[Entegre 8 Proje & Araç](#entegre-8-proje--araç) •
+[İndirilebilir Paketler (Tema & Eklenti)](#indirilebilir-paketler-tema--eklenti) •
+[Sistem Mimarisi](#sistem-mimarisi) •
+[Hızlı Başlangıç & Kurulum](#hızlı-başlangıç--kurulum) •
+[Modül Detayları & Kullanım](#modül-detayları--kullanım) •
+[Lisans](#lisans)
 
 </div>
 
 ---
 
-## 📖 Overview
+## Genel Bakış
 
-**Vision Content Extractor** is an intelligent, vision-augmented content parsing engine engineered for the modern web and document landscape. Built as a core component of the **Shaz Vision E-Com Pack**, it bridges visual intelligence with DOM parsing to reliably extract rich text, complex tables, pricing metrics, variant hierarchies, and product specifications from any source—even JavaScript-heavy single-page applications and unstructured scanned files.
+**Shaz Vision E-Com Pack**, e-ticaret markaları, pazaryeri satıcıları ve ajanslar için geliştirilmiş uçtan uca bir yönetim ve büyüme merkezidir.
 
-### Why Vision Content Extractor?
-
-Traditional scrapers break when web layouts shift, selectors change, or anti-bot protections obfuscate the DOM. **Vision Content Extractor** combines **multi-modal vision models (LLMs)**, **OCR technology**, and **semantic DOM parsing** to understand web pages the same way humans do.
+Ayrı ayrı geliştirilmiş 8 bağımsız e-ticaret çözümü; birim kârlılık analizinden reklam performans denetimine, pazaryeri stok/fiyat senkronizasyonundan Shopify teması ve dönüşüm widget paketlerine kadar **tek bir yüksek hızlı yazılım çatısında** toplanmıştır.
 
 ---
 
-## ✨ Key Features
+## Entegre 8 Proje & Araç
 
-- **🔍 Multi-Modal Visual Ingestion**  
-  Seamlessly process web page screenshots, PDF catalogs, scanned flyers, and high-resolution product imagery.
-
-- **🛍️ E-Commerce Focused Intelligence**  
-  Specialized parsers for automated extraction of SKU details, variant matrices (size/color/price), inventory statuses, customer reviews, and technical specifications.
-
-- **⚡ Resilient Dynamic Rendering**  
-  Headless browser orchestration with smart waiting algorithms to accurately capture client-rendered SPAs (Shopify, WooCommerce, Amazon, Magento, custom storefronts).
-
-- **🧩 Strict Schema Validation**  
-  Outputs pristine, strongly-typed JSON schemas powered by Pydantic models, ready for database ingestion or downstream pipeline processing.
-
-- **🚀 High-Throughput Batch Processing**  
-  Asynchronous queue-driven pipeline optimized for distributed crawling and large-scale catalog enrichment.
-
-- **🔗 Shaz Vision Integration**  
-  Plug-and-play compatibility with Shaz Vision tools, vector embeddings, and real-time indexing services.
+| # | Proje Adı | Açıklama & Rol | Panel Rotası | Kaynak Repo |
+|:---|:---|:---|:---|:---|
+| 1 | **Vision Profit Calc** | SKU bazlı net kâr, KDV, komisyon, kargo, başabaş ROAS, POAS ve iade risk maliyeti simülatörü | `/profit-calc` | [GitHub](https://github.com/berkaysahin-dev/Vision-Profit-Calc) |
+| 2 | **Vision Ads Metrics Bot** | Meta, Google ve TikTok Ads CSV veri raporlarını ayrıştıran ve KPI hesaplayan motor | `/ads-metrics` | [GitHub](https://github.com/berkaysahin-dev/Vision-Ads-Metrics-Bot) |
+| 3 | **Vision AI Customer Support** | Reklam kancası (hook) ve kreatif analizörü ile müşteri destek şablon üreticisi | `/ai-support` | [GitHub](https://github.com/berkaysahin-dev/Vision-AI-Customer-Support) |
+| 4 | **Vision Sync** | Shopify, Trendyol, Hepsiburada ve Amazon çift yönlü stok/fiyat ve SKU eşleştirme yöneticisi | `/vision-sync` | [GitHub](https://github.com/berkaysahin-dev/Vision-Sync) |
+| 5 | **Vision Pro Shopify** | Shopify Online Store 2.0 (Liquid 2.0) tam mağaza teması | **İndirilebilir `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/Vision-Pro-Shopify) |
+| 6 | **Vision Content Extractor** | E-ticaret web sayfalarından ve ürün içeriklerinden yapılandırılmış JSON çıkaran veri motoru | `/content-extractor` | [GitHub](https://github.com/berkaysahin-dev/Vision-Content-Extractor) |
+| 7 | **Vision Product Intelligence** | Pazar trendi ürün avcısı (AliExpress, Amazon, Trendyol) ve rakip fiyat takip radarı | `/product-intelligence` | [GitHub](https://github.com/berkaysahin-dev/Vision-Product-Intelligence) |
+| 8 | **Vision Product UI** | 20+ dönüşüm artıran liquid bloğu içeren Shopify App Extension paketi | **İndirilebilir `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/vision-product-ui) |
 
 ---
 
-## 🏗️ Architecture
+## İndirilebilir Paketler (Tema & Eklenti)
 
-```mermaid
-flowchart LR
-    subgraph Inputs["1. Ingestion Layer"]
-        A1[🌐 Dynamic Web URLs]
-        A2[📄 PDF Catalogs / Invoices]
-        A3[📸 Product Images / Screenshots]
-    end
+Panel içerisindeki **Dağıtım & İndirme Merkezi (`/downloads`)** üzerinden tek tıkla indirilebilen hazır üretim paketleri:
 
-    subgraph CoreEngine["2. Vision & Semantic Engine"]
-        B1[🖥️ Headless Browser & DOM Parser]
-        B2[👁️ OCR & Multi-Modal Vision LLM]
-        B3[🧠 Entity & Attribute Recognizer]
-    end
+### 1. Vision Pro Shopify Theme (`Vision-Pro-Shopify-Theme.zip` • 1.79 MB)
+- **Tür**: Shopify Online Store 2.0 Liquid Teması
+- **Özellikler**: Liquid 2.0 JSON şablonları, mega menü, varyant seçici, hızlı sepet çekmecesi (Cart Drawer), miktar indirimi (Quantity Breaks), kargo aşama çubuğu ve beden tablosu popupları.
+- **Kurulum**:
+  1. `Vision-Pro-Shopify-Theme.zip` dosyasını indirin.
+  2. Shopify Satıcı Paneli'nde **Online Mağaza > Temalar** bölümüne gidin.
+  3. **Tema Ekle > Zip Dosyası Yükle** butonuna tıklayarak arşivi yükleyin ve yayınlayın.
 
-    subgraph Processing["3. Normalization & Validation"]
-        C1[🧹 Noise Filter & Cleaner]
-        C2[📐 Schema Normalizer]
-        C3[🛡️ Pydantic Validation]
-    end
+### 2. Vision Product UI Extension (`Vision-Product-UI-Extension.zip` • 656 KB)
+- **Tür**: Shopify App Extension / Theme Embed Widget Paketi
+- **İçerik**: 20'den fazla dönüşüm widget'ı (Geri sayım barı, ücretsiz kargo hedefi, önce/sonra kaydırıcı, teslimat zaman çizelgesi, güven rozetleri, interaktif görsel noktacıkları).
+- **Kurulum**:
+  1. `Vision-Product-UI-Extension.zip` dosyasını indirin.
+  2. Shopify CLI ile `shopify app deploy` komutunu çalıştırın veya blokları tema özelleştiricinizden App Embed olarak aktif edin.
 
-    subgraph Output["4. Export & Ecosystem"]
-        D1[📦 Structured JSON / CSV]
-        D2[⚡ Shaz Vision API / Webhooks]
-        D3[🗄️ Database / S3 Storage]
-    end
+---
 
-    Inputs --> CoreEngine
-    CoreEngine --> Processing
-    Processing --> Output
+## Sistem Mimarisi
+
+```
+Shaz-Vision-E-Com-Pack/
+├── public/
+│   └── downloads/
+│       ├── Vision-Pro-Shopify-Theme.zip      # İndirilebilir Shopify Teması (1.79 MB)
+│       └── Vision-Product-UI-Extension.zip   # İndirilebilir UI Eklentisi (656 KB)
+├── packages/
+│   ├── theme-vision-pro-shopify/             # Tema ham kaynak kodları
+│   └── extension-vision-product-ui/          # Eklenti ham kaynak kodları
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                          # Kontrol Paneli (Executive Hub)
+│   │   ├── profit-calc/page.tsx              # Kâr & Birim Maliyet Hesaplayıcı
+│   │   ├── ads-metrics/page.tsx              # Reklam & CSV Analitiği
+│   │   ├── ai-support/page.tsx               # Kreatif Analiz & Destek Yanıtı
+│   │   ├── vision-sync/page.tsx              # Stok & Fiyat Senkronizasyonu
+│   │   ├── content-extractor/page.tsx        # Web Veri Çıkarıcı Sandbox
+│   │   ├── product-intelligence/page.tsx     # Pazar & Fiyat Radarı
+│   │   └── downloads/page.tsx                # Dağıtım & İndirme Merkezi
+│   ├── components/                           # Sidebar, TopBar, MetricCard, ShazVisionSignature
+│   └── lib/                                  # Finansal formüller, tipler ve iş mantığı
+├── package.json
+└── tsconfig.json
 ```
 
 ---
 
-## 🚀 Quick Start
+## Hızlı Başlangıç & Kurulum
 
-### 1. Prerequisites
+### Gereksinimler
+- **Node.js**: v18.0.0 veya üzeri (v20+ önerilir)
+- **npm**: v9.0.0 veya üzeri
 
-- Python 3.10+
-- Node.js 18+ *(for headless rendering dependencies)*
-- API Keys for Vision Providers (OpenAI, Google Gemini, Anthropic, or local Ollama)
-
-### 2. Installation
-
+### 1. Depoyu Klonlayın
 ```bash
-# Clone the repository
-git clone https://github.com/berkaysahin-dev/Vision-Content-Extractor.git
-cd Vision-Content-Extractor
-
-# Create a virtual environment
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Linux/macOS:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
+git clone https://github.com/berkaysahin-dev/Shaz-Vision-E-Com-Pack.git
+cd Shaz-Vision-E-Com-Pack
 ```
 
-### 3. Environment Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-# Vision & LLM Provider Keys
-OPENAI_API_KEY=your_openai_key_here
-GEMINI_API_KEY=your_gemini_key_here
-
-# Engine Settings
-HEADLESS_BROWSER=chromium
-EXTRACTION_TIMEOUT=30
-LOG_LEVEL=INFO
-```
-
-### 4. Basic Usage
-
-#### Python SDK Example
-
-```python
-import asyncio
-from vision_extractor import VisionExtractor, ExtractionTarget
-
-async def main():
-    # Initialize extractor engine
-    extractor = VisionExtractor(provider="gemini", model="gemini-2.0-flash")
-
-    # Define target
-    target = ExtractionTarget(
-        url="https://example.com/product/modern-smart-watch",
-        schema_type="ecommerce_product"
-    )
-
-    # Run extraction
-    result = await extractor.extract(target)
-    
-    print("Extracted Product:")
-    print(result.to_json(indent=2))
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-#### CLI Command
-
+### 2. Bağımlılıkları Yükleyin
 ```bash
-# Extract from a single URL
-python -m vision_extractor extract --url "https://example.com/product/item-123" --output product.json
+npm install
+```
 
-# Batch extract from a file list
-python -m vision_extractor batch --file-list targets.txt --out-dir ./extracted_data/
+### 3. Geliştirme Sunucusunu Başlatın
+```bash
+npm run dev
+```
+Tarayıcınızda `http://localhost:3000` adresini açarak komuta merkezine erişebilirsiniz.
+
+### 4. Üretim Derlemesi (Production Build)
+```bash
+npm run build
+npm run start
 ```
 
 ---
 
-## 📊 E-Commerce Extraction Schema
+## Modül Detayları & Kullanım
 
-Example output structure generated by the engine:
+### 1. Vision Profit Calc (`/profit-calc`)
+- **Birim Maliyet Hesaplama**: Satış fiyatı, COGS, pazaryeri komisyonu, ödeme altyapı ücreti, kargo ve paketleme maliyetlerini girerek net kâr ve marj oranını hesaplar.
+- **KDV Modeli**: KDV dahil ve KDV hariç hesaplama seçenekleri.
+- **Pazaryeri Şablonları**: Trendyol (%21), Hepsiburada (%19.5), Amazon (%15) ve Shopify (%2.8) varsayılan komisyon ve kargo parametreleri tek tıkla yüklenir.
+- **ROAS & POAS Eşiği**: Kampanyaların zarara uğramaması için gereken minimum Başabaş ROAS ve kârlılık POAS katsayısını hesaplar.
+- **Dışa Aktarma**: Hesaplama sonuçlarını tek tıkla JSON olarak dışa aktarır.
 
-```json
-{
-  "status": "success",
-  "metadata": {
-    "source_url": "https://example.com/product/shaz-ultra-watch",
-    "extracted_at": "2026-08-15T18:30:00Z",
-    "confidence_score": 0.985
-  },
-  "data": {
-    "title": "Shaz Vision Ultra Smartwatch Series 5",
-    "brand": "Shaz Vision",
-    "sku": "SV-WATCH-005",
-    "pricing": {
-      "currency": "USD",
-      "regular_price": 299.99,
-      "sale_price": 249.99,
-      "discount_percentage": 16.67
-    },
-    "availability": {
-      "in_stock": true,
-      "quantity": 42
-    },
-    "variants": [
-      { "color": "Midnight Black", "size": "44mm", "sku": "SV-WATCH-005-BLK-44" },
-      { "color": "Silver Frost", "size": "40mm", "sku": "SV-WATCH-005-SLV-40" }
-    ],
-    "specifications": {
-      "Display": "1.9-inch AMOLED",
-      "Battery Life": "Up to 7 days",
-      "Water Resistance": "50m (5 ATM)",
-      "Sensors": ["Heart Rate", "SpO2", "GPS", "Altimeter"]
-    },
-    "images": [
-      {
-        "url": "https://example.com/images/watch-main.jpg",
-        "type": "primary",
-        "alt": "Front view of Shaz Vision Smartwatch"
-      }
-    ]
-  }
-}
-```
+### 2. Vision Ads Metrics Bot (`/ads-metrics`)
+- **CSV Yükleme & Ayrıştırma**: Meta Ads Manager, Google Ads veya TikTok Ads üzerinden dışa aktarılan CSV raporlarını doğrudan sürükleyip bırakarak analiz eder.
+- **Hesaplanan Metrikler**: ROAS (Gelir/Harcama), CPA (Harcama/Dönüşüm), CTR (Tıklama/Gösterim), CPC (Harcama/Tıklama).
+- **Algoritmik Tanı**: Kampanyanın getiri oranına göre bütçe artırma (%20 scale) veya hedef kitle revizyonu önerileri üretir.
+
+### 3. Vision AI Support & Creative Generator (`/ai-support`)
+- **Kreatif & Kanca (Hook) Analizörü**: Platform (TikTok / Reels / Shorts), kanca türü (Merak Boşluğu, Problem Vurgusu, Desen Kırıcı vb.), açı türü ve CTA parametrelerine göre tahmini virallik ve tutundurma puanı hesaplar; 4 aşamalı reklam metni üretir.
+- **Destek Yanıtı Üretici**: Kargo durumu, iade/değişim veya ürün soruları için müşteri adına ve sipariş numarasına özel yapılandırılmış kurumsal yanıt şablonları oluşturur.
+
+### 4. Vision Sync (`/vision-sync`)
+- **Pazaryeri Entegrasyonları**: Shopify, Trendyol, Hepsiburada ve Amazon kanallarının anlık durumunu izler.
+- **SKU Eşleştirme Yöneticisi**: Kaynak SKU ile hedef pazaryeri barkodları arasında stok miktarı ve fiyat çarpanı tanımlayarak eşleştirme ekleme ve silme işlemlerini yönetir.
+- **Olay Kayıtları**: Senkronizasyon olaylarını ve webhook tetikleyicilerini gerçek zamanlı listeler.
+
+### 5. Vision Content Extractor (`/content-extractor`)
+- **Web & Görsel Veri Ayrıştırıcı**: Hedef ürün bağlantısını ayrıştırarak başlık, marka, SKU, fiyatlandırma, stok durumu, varyant matrisi ve teknik özellikleri doğrulanmış JSON şemasına dönüştürür.
+
+### 6. Vision Product Intelligence (`/product-intelligence`)
+- **Ürün Avcısı (Hunter)**: Trendyol, Amazon TR ve AliExpress üzerinde anahtar kelime araması yaparak tahmini aylık talep, ortalama pazar fiyatı, tedarik maliyeti ve kâr marjı potansiyelini analiz eder.
+- **Rakip Fiyat Takipçisi**: Rakiplerin fiyatlarını ve indirim hareketlerini izleyerek fiyat farkı yüzdesini ve fiyat kırma (dumping) durumlarını listeler.
 
 ---
 
-## 🗺️ Roadmap
+## Lisans
 
-- [x] Repository architecture & initial specification
-- [ ] Core Headless Ingestion Engine (Playwright / Chromium integration)
-- [ ] Multi-Model Vision Connector (Gemini 2.0 / GPT-4o / Ollama)
-- [ ] E-Commerce Product & Catalog Extraction Module
-- [ ] Batch processing pipeline with Celery / Redis queue
-- [ ] Document / PDF / Table extraction suite
-- [ ] REST API & Webhook Dispatcher
-- [ ] Shaz Vision E-Com Pack full native integration
-
----
-
-## 🌐 Shaz Vision Ecosystem
-
-**Vision Content Extractor** is built to function both as an independent, standalone library and as an integral part of the **Shaz Vision** intelligent commerce suite:
-
-- 🛒 **Shaz Vision E-Com Pack**: End-to-end catalog intelligence, visual search, and automated product enrichment.
-- 🎯 **Vision Content Extractor**: High-precision multi-modal extraction engine.
-- ⚡ **Shaz Stream Pipeline**: Real-time structured data streaming & alerting.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to improve the extractor, add custom schemas, or support new vision providers:
-
-1. Fork the Project (`https://github.com/berkaysahin-dev/Vision-Content-Extractor/fork`)
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: Add AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Bu proje **MIT Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasını inceleyebilirsiniz.
 
 ---
 
 <div align="center">
-  <p>Maintained with ❤️ by <strong><a href="https://github.com/berkaysahin-dev">Berkay Şahin</a></strong> & <strong>Shaz Vision</strong></p>
-  <p>© 2026 Shaz Vision. All rights reserved.</p>
+  <p><strong>shazvision.com • SHAZ VISION</strong></p>
+  <p>© 2026 SHAZ VISION. Tüm hakları saklıdır.</p>
 </div>

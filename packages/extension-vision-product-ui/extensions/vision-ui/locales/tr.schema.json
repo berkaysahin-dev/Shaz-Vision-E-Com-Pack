@@ -1,0 +1,163 @@
+{
+  "name": "Vision Product UI",
+  "blocks": {
+    "trust_badges": {
+      "name": "Güven Rozetleri",
+      "settings": {
+        "title": "Başlık",
+        "title_default": "Neden bizi seçmelisiniz?",
+        "icon": "İkon",
+        "text": "Metin",
+        "badge_1_default": "Güvenli Ödeme",
+        "badge_2_default": "Hızlı Kargo",
+        "badge_3_default": "Kolay İade",
+        "badge_4_default": "%100 Memnuniyet",
+        "alignment": "Hizalama",
+        "icon_size": "İkon Boyutu",
+        "text_size": "Yazı Boyutu",
+        "badge_width": "Rozet Genişliği",
+        "padding": "Dikey Boşluk",
+        "icon_color": "İkon Rengi",
+        "text_color": "Metin Rengi",
+        "show_border": "Çerçeve Göster",
+        "bg_color": "Arka Plan Rengi"
+      }
+    },
+    "product_benefits": {
+      "name": "Ürün Avantajları",
+      "settings": {
+        "icon": "İkon",
+        "title": "Başlık",
+        "desc": "Açıklama",
+        "benefit_1_title": "Premium Kalite",
+        "benefit_1_desc": "En iyi malzemelerle üretildi.",
+        "benefit_2_title": "Doğa Dostu",
+        "benefit_2_desc": "%100 sürdürülebilir paketleme.",
+        "benefit_3_title": "Müşteri Favorisi",
+        "benefit_3_desc": "10.000'den fazla mutlu müşteri.",
+        "layout": "Düzen",
+        "gap": "Öğeler Arası Boşluk",
+        "padding": "Dikey Boşluk",
+        "icon_size": "İkon Kutusu Boyutu",
+        "icon_color": "İkon Rengi",
+        "icon_bg_color": "İkon Arka Plan Rengi",
+        "title_size": "Başlık Boyutu",
+        "desc_size": "Açıklama Boyutu",
+        "text_color": "Metin Rengi"
+      }
+    },
+    "delivery_timeline": {
+      "name": "Teslimat Süreci",
+      "settings": {
+        "title": "Başlık",
+        "title_default": "Beklenen Teslimat",
+        "progress": "Süreç İlerlemesi",
+        "progress_info": "0 = Sipariş Alındı, 50 = Kargoya Verildi, 100 = Teslim Edildi",
+        "shipped_date": "Kargoya Verilme Metni",
+        "shipped_default": "1-2 gün içinde",
+        "delivered_date": "Teslim Edilme Metni",
+        "delivered_default": "3-5 gün içinde",
+        "active_color": "Aktif Renk",
+        "text_color": "Metin Rengi",
+        "text_size": "Metin Boyutu",
+        "padding": "Dikey Boşluk",
+        "label_ordered": "Sipariş Alındı",
+        "label_shipped": "Kargolandı",
+        "label_delivered": "Teslim Edildi"
+      }
+    },
+    "stock_indicator": {
+      "name": "Stok Göstergesi",
+      "settings": {
+        "message": "Mesaj",
+        "message_default": "Acele edin! Stokta sadece [stock] adet kaldı.",
+        "stock_number": "Simüle Edilen Stok Sayısı",
+        "show_icon": "Ateş İkonu Göster",
+        "animate": "İkonu Animasyonlandır",
+        "show_bar": "İlerleme Çubuğunu Göster",
+        "stock_percentage": "Çubuk Doluluk Yüzdesi",
+        "color": "Vurgu Rengi",
+        "text_color": "Metin Rengi",
+        "text_size": "Metin Boyutu",
+        "bar_height": "Çubuk Yüksekliği",
+        "padding": "Dikey Boşluk"
+      }
+    },
+    "interactive_hotspot": {
+      "name": "Etkileşimli Noktalar",
+      "settings": {
+        "image": "Görsel",
+        "show_hotspot": "Noktayı Etkinleştir",
+        "top": "Dikey Konum",
+        "left": "Yatay Konum",
+        "text": "İpucu Metni",
+        "text_1_default": "Premium Malzeme",
+        "text_2_default": "Ergonomik Tasarım",
+        "text_3_default": "Dayanıklı Yüzey",
+        "hotspot_color": "Nokta Rengi",
+        "tooltip_bg": "İpucu Arka Planı",
+        "tooltip_color": "İpucu Metin Rengi",
+        "margin": "Dikey Kenar Boşluğu"
+      }
+    },
+    "before_after": {
+      "name": "Öncesi / Sonrası",
+      "settings": {
+        "image_before": "Önceki Görsel",
+        "image_after": "Sonraki Görsel",
+        "label_before": "Öncesi Etiketi",
+        "label_after": "Sonrası Etiketi",
+        "slider_color": "Kaydırıcı Rengi",
+        "border_radius": "Kenar Yuvarlama",
+        "height": "Kutu Yüksekliği (px)"
+      }
+    },
+    "review_summary": {
+      "name": "Yorum Özeti",
+      "settings": {
+        "title": "Başlık",
+        "title_default": "Müşteri Yorumları",
+        "rating": "Ortalama Puan (5 üzerinden)",
+        "total_reviews": "Toplam Yorum Sayısı",
+        "color_stars": "Yıldız Rengi",
+        "color_bars": "Çubuk Dolgu Rengi",
+        "bg_color": "Arka Plan Rengi"
+      }
+    },
+    "product_comparison": {
+      "name": "Ürün Karşılaştırma",
+      "settings": {
+        "title": "Başlık",
+        "title_default": "Neden Bizi Seçmelisiniz?",
+        "our_brand": "Marka Adınız",
+        "competitor": "Rakip Marka",
+        "feature_1": "Özellik 1",
+        "feature_2": "Özellik 2",
+        "feature_3": "Özellik 3",
+        "brand_color": "Marka Vurgu Rengi",
+        "bg_color": "Tablo Arka Planı"
+      }
+    },
+    "app_embed": {
+      "name": "Vision Global Uygulama Ayarları",
+      "settings": {
+        "primary_color": "Ana Vurgu Rengi",
+        "enable_sticky_buy": "Yapışkan Satın Al Barını Etkinleştir",
+        "enable_sales_toast": "Satış Bildirim Pop-up'ını Aç",
+        "enable_whatsapp": "WhatsApp Butonunu Göster"
+      }
+    },
+    "size_chart_modal": {
+      "name": "Beden Tablosu Modalı"
+    },
+    "live_viewers": {
+      "name": "Canlı Ziyaretçi Sayacı"
+    },
+    "exit_intent_popup": {
+      "name": "Sepetten Kaçış Engelleme Modalı"
+    },
+    "frequently_bought_together": {
+      "name": "Birlikte Sık Alınan Ürünler"
+    }
+  }
+}

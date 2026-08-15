@@ -1,0 +1,220 @@
+{
+  "sections": {
+    "contact_hero": {
+      "type": "rich-text",
+      "blocks": {
+        "hero_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Bizimle İletişime Geçin</p>",
+            "heading_size": "h0"
+          }
+        },
+        "hero_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sorularınız, önerileriniz veya sipariş talepleriniz için ekibimiz size yardımcı olmaya hazır. En kısa sürede dönüş yapıyoruz.</p>"
+          }
+        }
+      },
+      "block_order": ["hero_heading", "hero_text"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 32
+      }
+    },
+    "contact_info": {
+      "type": "icons-with-content",
+      "blocks": {
+        "icon_email": {
+          "type": "icon",
+          "settings": {
+            "icon": "mail",
+            "filled_icon": false,
+            "title": "E-posta",
+            "text": "<p>destek@visionproshop.com</p>"
+          }
+        },
+        "icon_phone": {
+          "type": "icon",
+          "settings": {
+            "icon": "call",
+            "filled_icon": false,
+            "title": "Telefon",
+            "text": "<p>+90 (212) 000 00 00</p>"
+          }
+        },
+        "icon_location": {
+          "type": "icon",
+          "settings": {
+            "icon": "location_on",
+            "filled_icon": false,
+            "title": "Adres",
+            "text": "<p>İstanbul, Türkiye</p>"
+          }
+        },
+        "icon_hours": {
+          "type": "icon",
+          "settings": {
+            "icon": "schedule",
+            "filled_icon": false,
+            "title": "Çalışma Saatleri",
+            "text": "<p>Pzt–Cmt: 09:00 – 18:00</p>"
+          }
+        },
+        "content_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Size Nasıl Yardımcı Olabiliriz?",
+            "heading_size": "h1"
+          }
+        },
+        "content_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ürün bilgisi, sipariş takibi, iade ve değişim süreçleri hakkında bize ulaşabilirsiniz. Formu doldurun, 24 saat içinde yanıt alın.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": ["icon_email", "icon_phone", "icon_location", "icon_hours", "content_heading", "content_text"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "icon_size": "m",
+        "icon_position": "next-to-title",
+        "icon_color": "accent-1",
+        "icon_heading_size": "h4",
+        "icon_text_alignment": "left",
+        "icons_desktop_layout": "1-column",
+        "icons_mobile_layout": "1-column",
+        "layout": "text_first",
+        "mobile_layout": "text_first",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "contact_form": {
+      "type": "contact-form",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "heading": "Mesaj Gönderin",
+        "heading_size": "h1",
+        "button_full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 48
+      }
+    },
+    "contact_features": {
+      "type": "icon-bar",
+      "blocks": {
+        "cf_1": {
+          "type": "column",
+          "settings": {
+            "icon": "bolt",
+            "filled_icon": false,
+            "title": "Hızlı Yanıt",
+            "text": "<p>24 saat içinde geri dönüş garantisi.</p>"
+          }
+        },
+        "cf_2": {
+          "type": "column",
+          "settings": {
+            "icon": "lock",
+            "filled_icon": false,
+            "title": "Güvenli İletişim",
+            "text": "<p>Verileriniz şifreli olarak korunur.</p>"
+          }
+        },
+        "cf_3": {
+          "type": "column",
+          "settings": {
+            "icon": "headset_mic",
+            "filled_icon": false,
+            "title": "Uzman Destek",
+            "text": "<p>Deneyimli ekibimiz yanınızda.</p>"
+          }
+        }
+      },
+      "block_order": ["cf_1", "cf_2", "cf_3"],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "heading_size": "h2",
+        "text": "",
+        "color_scheme": "background-2",
+        "icon_layout": "vertical",
+        "icon_size": "medium",
+        "icon_color": "accent-1",
+        "cards_color_scheme": "background-1",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "slider_desktop": false,
+        "slider_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "contact_faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Siparişim ne zaman kargoya verilir?",
+            "icon": "local_shipping",
+            "filled_icon": false,
+            "row_content": "<p>Siparişleriniz 1–2 iş günü içinde kargoya teslim edilir. Kargo takip numaranız e-posta ile gönderilir.</p>",
+            "page": ""
+          }
+        },
+        "faq_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "İade ve değişim nasıl yapılır?",
+            "icon": "sync",
+            "filled_icon": false,
+            "row_content": "<p>14 gün içinde koşulsuz iade hakkınız bulunmaktadır. İade formunu doldurarak süreci başlatabilirsiniz.</p>",
+            "page": ""
+          }
+        },
+        "faq_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+            "icon": "credit_card",
+            "filled_icon": false,
+            "row_content": "<p>Kredi kartı, banka kartı ve güvenli online ödeme yöntemlerini kabul ediyoruz.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3"],
+      "settings": {
+        "caption": "",
+        "heading": "Sık Sorulan Sorular",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": ["contact_hero", "contact_info", "contact_form", "contact_features", "contact_faq"]
+}

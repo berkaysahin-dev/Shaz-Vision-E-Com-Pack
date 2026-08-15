@@ -1,0 +1,5 @@
+type = "backend"
+roles = ["frontend", "backend"]
+
+[commands]
+dev = "node index.js"
