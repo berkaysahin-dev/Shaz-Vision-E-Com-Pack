@@ -1,10 +1,10 @@
 <div align="center">
 
 # SHAZ VISION E-COM PACK
-### *All-in-One E-Commerce Management Suite, Storefront Theme & Extension Pack*
+### *All-in-One E-Commerce Management Suite, Storefront Theme & UI Extension Pack*
 
 <p align="center">
-  <strong>Tek bir kurumsal komuta merkezinde toplanmış 8 e-ticaret aracı, veri işleme motorları, Shopify teması ve UI eklenti paketi.</strong>
+  <strong>A unified enterprise command center consolidating 8 specialized e-commerce engines, data processors, a full Shopify Liquid 2.0 theme, and conversion UI extension.</strong>
 </p>
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.x-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
@@ -16,118 +16,117 @@
 
 ---
 
-[Genel Bakış](#genel-bakış) •
-[Entegre 8 Proje & Araç](#entegre-8-proje--araç) •
-[İndirilebilir Paketler (Tema & Eklenti)](#indirilebilir-paketler-tema--eklenti) •
-[Sistem Mimarisi](#sistem-mimarisi) •
-[Hızlı Başlangıç & Kurulum](#hızlı-başlangıç--kurulum) •
-[Modül Detayları & Kullanım](#modül-detayları--kullanım) •
-[Lisans](#lisans)
+[Overview](#overview) •
+[Integrated 8 Projects & Engines](#integrated-8-projects--engines) •
+[Distribution Packages (Theme & Extension)](#distribution-packages-theme--extension) •
+[System Architecture](#system-architecture) •
+[Quick Start & Installation](#quick-start--installation) •
+[Module Details & Functionality](#module-details--functionality) •
+[License](#license)
 
 </div>
 
 ---
 
-## Genel Bakış
+## Overview
 
-**Shaz Vision E-Com Pack**, e-ticaret markaları, pazaryeri satıcıları ve ajanslar için geliştirilmiş uçtan uca bir yönetim ve büyüme merkezidir.
+**Shaz Vision E-Com Pack** is an end-to-end management and scaling ecosystem built for e-commerce brands, marketplace sellers, and digital marketing agencies.
 
-Ayrı ayrı geliştirilmiş 8 bağımsız e-ticaret çözümü; birim kârlılık analizinden reklam performans denetimine, pazaryeri stok/fiyat senkronizasyonundan Shopify teması ve dönüşüm widget paketlerine kadar **tek bir yüksek hızlı yazılım çatısında** toplanmıştır.
+Eight independently developed e-commerce software products—spanning unit economics calculations, ads performance diagnostics, multi-channel marketplace inventory synchronization, and Shopify theme/extension distributions—have been unified into a **single, high-speed, modern web software suite**.
 
 ---
 
-## Entegre 8 Proje & Araç
+## Integrated 8 Projects & Engines
 
-| # | Proje Adı | Açıklama & Rol | Panel Rotası | Kaynak Repo |
+| # | Project Name | Description & Primary Function | Suite Route | Source Repository |
 |:---|:---|:---|:---|:---|
-| 1 | **Vision Profit Calc** | SKU bazlı net kâr, KDV, komisyon, kargo, başabaş ROAS, POAS ve iade risk maliyeti simülatörü | `/profit-calc` | [GitHub](https://github.com/berkaysahin-dev/Vision-Profit-Calc) |
-| 2 | **Vision Ads Metrics Bot** | Meta, Google ve TikTok Ads CSV veri raporlarını ayrıştıran ve KPI hesaplayan motor | `/ads-metrics` | [GitHub](https://github.com/berkaysahin-dev/Vision-Ads-Metrics-Bot) |
-| 3 | **Vision AI Customer Support** | Reklam kancası (hook) ve kreatif analizörü ile müşteri destek şablon üreticisi | `/ai-support` | [GitHub](https://github.com/berkaysahin-dev/Vision-AI-Customer-Support) |
-| 4 | **Vision Sync** | Shopify, Trendyol, Hepsiburada ve Amazon çift yönlü stok/fiyat ve SKU eşleştirme yöneticisi | `/vision-sync` | [GitHub](https://github.com/berkaysahin-dev/Vision-Sync) |
-| 5 | **Vision Pro Shopify** | Shopify Online Store 2.0 (Liquid 2.0) tam mağaza teması | **İndirilebilir `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/Vision-Pro-Shopify) |
-| 6 | **Vision Content Extractor** | E-ticaret web sayfalarından ve ürün içeriklerinden yapılandırılmış JSON çıkaran veri motoru | `/content-extractor` | [GitHub](https://github.com/berkaysahin-dev/Vision-Content-Extractor) |
-| 7 | **Vision Product Intelligence** | Pazar trendi ürün avcısı (AliExpress, Amazon, Trendyol) ve rakip fiyat takip radarı | `/product-intelligence` | [GitHub](https://github.com/berkaysahin-dev/Vision-Product-Intelligence) |
-| 8 | **Vision Product UI** | 20+ dönüşüm artıran liquid bloğu içeren Shopify App Extension paketi | **İndirilebilir `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/vision-product-ui) |
+| 1 | **Vision Profit Calc** | SKU-level net profit, VAT, marketplace commissions, logistics, break-even ROAS & POAS simulator | `/profit-calc` | [GitHub](https://github.com/berkaysahin-dev/Vision-Profit-Calc) |
+| 2 | **Vision Ads Metrics Bot** | Meta, Google, and TikTok Ads CSV report parser, derived KPI calculator, and algorithmic diagnostics | `/ads-metrics` | [GitHub](https://github.com/berkaysahin-dev/Vision-Ads-Metrics-Bot) |
+| 3 | **Vision AI Customer Support** | Advertising hook/angle analyzer with retention scoring and structured support reply generator | `/ai-support` | [GitHub](https://github.com/berkaysahin-dev/Vision-AI-Customer-Support) |
+| 4 | **Vision Sync** | Multi-channel marketplace synchronization bridge (Shopify, Trendyol, Hepsiburada, Amazon) & SKU manager | `/vision-sync` | [GitHub](https://github.com/berkaysahin-dev/Vision-Sync) |
+| 5 | **Vision Pro Shopify** | Complete Shopify Online Store 2.0 (Liquid 2.0) storefront theme package | **Downloadable `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/Vision-Pro-Shopify) |
+| 6 | **Vision Content Extractor** | Multi-modal web scraping sandbox and structured JSON product schema extractor | `/content-extractor` | [GitHub](https://github.com/berkaysahin-dev/Vision-Content-Extractor) |
+| 7 | **Vision Product Intelligence** | Market trend product hunter (AliExpress, Amazon, Trendyol) & competitor price radar | `/product-intelligence` | [GitHub](https://github.com/berkaysahin-dev/Vision-Product-Intelligence) |
+| 8 | **Vision Product UI** | 20+ conversion-boosting liquid blocks & widgets Shopify App Extension package | **Downloadable `.zip`** (`/downloads`) | [GitHub](https://github.com/berkaysahin-dev/vision-product-ui) |
 
 ---
 
-## İndirilebilir Paketler (Tema & Eklenti)
+## Distribution Packages (Theme & Extension)
 
-Panel içerisindeki **Dağıtım & İndirme Merkezi (`/downloads`)** üzerinden tek tıkla indirilebilen hazır üretim paketleri:
+Accessible directly from the **Distribution & Download Hub (`/downloads`)** within the suite:
 
 ### 1. Vision Pro Shopify Theme (`Vision-Pro-Shopify-Theme.zip` • 1.79 MB)
-- **Tür**: Shopify Online Store 2.0 Liquid Teması
-- **Özellikler**: Liquid 2.0 JSON şablonları, mega menü, varyant seçici, hızlı sepet çekmecesi (Cart Drawer), miktar indirimi (Quantity Breaks), kargo aşama çubuğu ve beden tablosu popupları.
-- **Kurulum**:
-  1. `Vision-Pro-Shopify-Theme.zip` dosyasını indirin.
-  2. Shopify Satıcı Paneli'nde **Online Mağaza > Temalar** bölümüne gidin.
-  3. **Tema Ekle > Zip Dosyası Yükle** butonuna tıklayarak arşivi yükleyin ve yayınlayın.
+- **Type**: Shopify Online Store 2.0 Liquid Theme
+- **Features**: Full Liquid 2.0 JSON templates, mega menu, variant selector, sticky add-to-cart drawer, quantity breaks, free shipping progress bar, and size chart modal.
+- **Installation**:
+  1. Download `Vision-Pro-Shopify-Theme.zip`.
+  2. In your Shopify Admin, navigate to **Online Store > Themes**.
+  3. Click **Add Theme > Upload zip file**, select the downloaded archive, and publish.
 
 ### 2. Vision Product UI Extension (`Vision-Product-UI-Extension.zip` • 656 KB)
-- **Tür**: Shopify App Extension / Theme Embed Widget Paketi
-- **Lisans Koruması**: Bu eklenti lisans anahtarı ile dağıtılmaktadır.
-- **Yetkili Lisans Kodu**: `SHAZ-VISION-UI-EXTENSION`
-- **İçerik**: 20'den fazla dönüşüm widget'ı (Geri sayım barı, ücretsiz kargo hedefi, önce/sonra kaydırıcı, teslimat zaman çizelgesi, güven rozetleri, interaktif görsel noktacıkları).
-- **Kurulum**:
-  1. `/downloads` sayfasında lisans kodunu (`SHAZ-VISION-UI-EXTENSION`) girip doğrulayın ve paketi indirin.
-  2. Shopify CLI ile `shopify app deploy` komutunu çalıştırın veya blokları tema özelleştiricinizden App Embed olarak aktif edin.
-
+- **Type**: Shopify App Extension / Theme Embed Widget Pack
+- **License Protection**: This package is secured via license verification.
+- **Authorized License Key**: `SHAZ-VISION-UI-EXTENSION`
+- **Contents**: 20+ conversion widgets (Countdown timer bar, free shipping progress, before/after image slider, delivery timeline, trust badges, interactive hotspots).
+- **Installation**:
+  1. On the `/downloads` page, enter the license key `SHAZ-VISION-UI-EXTENSION` to verify and download the archive.
+  2. Deploy via Shopify CLI (`shopify app deploy`) or activate the widgets as App Embeds directly within your Shopify Theme Editor.
 
 ---
 
-## Sistem Mimarisi
+## System Architecture
 
 ```
 Shaz-Vision-E-Com-Pack/
 ├── public/
 │   └── downloads/
-│       ├── Vision-Pro-Shopify-Theme.zip      # İndirilebilir Shopify Teması (1.79 MB)
-│       └── Vision-Product-UI-Extension.zip   # İndirilebilir UI Eklentisi (656 KB)
+│       ├── Vision-Pro-Shopify-Theme.zip      # Complete Shopify Theme (1.79 MB)
+│       └── Vision-Product-UI-Extension.zip   # Licensed UI Extension (656 KB)
 ├── packages/
-│   ├── theme-vision-pro-shopify/             # Tema ham kaynak kodları
-│   └── extension-vision-product-ui/          # Eklenti ham kaynak kodları
+│   ├── theme-vision-pro-shopify/             # Unbundled theme source code
+│   └── extension-vision-product-ui/          # Unbundled extension source code
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx                          # Kontrol Paneli (Executive Hub)
-│   │   ├── profit-calc/page.tsx              # Kâr & Birim Maliyet Hesaplayıcı
-│   │   ├── ads-metrics/page.tsx              # Reklam & CSV Analitiği
-│   │   ├── ai-support/page.tsx               # Kreatif Analiz & Destek Yanıtı
-│   │   ├── vision-sync/page.tsx              # Stok & Fiyat Senkronizasyonu
-│   │   ├── content-extractor/page.tsx        # Web Veri Çıkarıcı Sandbox
-│   │   ├── product-intelligence/page.tsx     # Pazar & Fiyat Radarı
-│   │   └── downloads/page.tsx                # Dağıtım & İndirme Merkezi
+│   │   ├── page.tsx                          # Executive Suite Overview & Directory
+│   │   ├── profit-calc/page.tsx              # Unit Economics & Profit Engine
+│   │   ├── ads-metrics/page.tsx              # Ads KPI & CSV Parser Engine
+│   │   ├── ai-support/page.tsx               # Hook Analyzer & Support Copywriter
+│   │   ├── vision-sync/page.tsx              # Multi-Channel Sync & SKU Mapping
+│   │   ├── content-extractor/page.tsx        # Web & Visual Content Extractor
+│   │   ├── product-intelligence/page.tsx     # Product Hunter & Competitor Radar
+│   │   └── downloads/page.tsx                # Distribution Hub (License Protected)
 │   ├── components/                           # Sidebar, TopBar, MetricCard, ShazVisionSignature
-│   └── lib/                                  # Finansal formüller, tipler ve iş mantığı
+│   └── lib/                                  # Pure financial math models, parsers, and types
 ├── package.json
 └── tsconfig.json
 ```
 
 ---
 
-## Hızlı Başlangıç & Kurulum
+## Quick Start & Installation
 
-### Gereksinimler
-- **Node.js**: v18.0.0 veya üzeri (v20+ önerilir)
-- **npm**: v9.0.0 veya üzeri
+### Prerequisites
+- **Node.js**: v18.0.0 or later (v20+ recommended)
+- **npm**: v9.0.0 or later
 
-### 1. Depoyu Klonlayın
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/berkaysahin-dev/Shaz-Vision-E-Com-Pack.git
 cd Shaz-Vision-E-Com-Pack
 ```
 
-### 2. Bağımlılıkları Yükleyin
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Geliştirme Sunucusunu Başlatın
+### 3. Start Development Server
 ```bash
 npm run dev
 ```
-Tarayıcınızda `http://localhost:3000` adresini açarak komuta merkezine erişebilirsiniz.
+Open `http://localhost:3000` in your browser to access the suite.
 
-### 4. Üretim Derlemesi (Production Build)
+### 4. Build for Production
 ```bash
 npm run build
 npm run start
@@ -135,45 +134,46 @@ npm run start
 
 ---
 
-## Modül Detayları & Kullanım
+## Module Details & Functionality
 
 ### 1. Vision Profit Calc (`/profit-calc`)
-- **Birim Maliyet Hesaplama**: Satış fiyatı, COGS, pazaryeri komisyonu, ödeme altyapı ücreti, kargo ve paketleme maliyetlerini girerek net kâr ve marj oranını hesaplar.
-- **KDV Modeli**: KDV dahil ve KDV hariç hesaplama seçenekleri.
-- **Pazaryeri Şablonları**: Trendyol (%21), Hepsiburada (%19.5), Amazon (%15) ve Shopify (%2.8) varsayılan komisyon ve kargo parametreleri tek tıkla yüklenir.
-- **ROAS & POAS Eşiği**: Kampanyaların zarara uğramaması için gereken minimum Başabaş ROAS ve kârlılık POAS katsayısını hesaplar.
-- **Dışa Aktarma**: Hesaplama sonuçlarını tek tıkla JSON olarak dışa aktarır.
+- **Unit Economics Math Engine**: Input sale price, COGS, marketplace commission, payment gateway fees, fixed shipping, packaging, and return risk percentage to compute precise net profit and net margin.
+- **VAT Inclusivity Toggle**: Switch between VAT-inclusive and VAT-exclusive pricing models.
+- **Marketplace Presets**: 1-click presets for Trendyol (21%), Hepsiburada (19.5%), Amazon TR (15%), and Shopify (2.8%).
+- **Break-Even Diagnostics**: Instant calculation of Break-even ROAS threshold and Profit on Ad Spend (POAS) factor.
+- **JSON Export**: Export full calculation breakdowns in formatted JSON with one click.
 
 ### 2. Vision Ads Metrics Bot (`/ads-metrics`)
-- **CSV Yükleme & Ayrıştırma**: Meta Ads Manager, Google Ads veya TikTok Ads üzerinden dışa aktarılan CSV raporlarını doğrudan sürükleyip bırakarak analiz eder.
-- **Hesaplanan Metrikler**: ROAS (Gelir/Harcama), CPA (Harcama/Dönüşüm), CTR (Tıklama/Gösterim), CPC (Harcama/Tıklama).
-- **Algoritmik Tanı**: Kampanyanın getiri oranına göre bütçe artırma (%20 scale) veya hedef kitle revizyonu önerileri üretir.
+- **Drag-and-Drop CSV Upload**: Ingest raw campaign exports from Meta Ads Manager, Google Ads, or TikTok Ads.
+- **Dynamic Header Normalization**: Automatically matches standard and custom column names across ad networks.
+- **Derived KPI Engine**: Computes ROAS (Revenue/Spend), CPA (Spend/Conversions), CTR (Clicks/Impressions), and CPC (Spend/Clicks).
+- **Algorithmic Diagnostics**: Flags scaling opportunities (e.g. ROAS > 3.5x for budget scale) and underperforming ad sets.
 
 ### 3. Vision AI Support & Creative Generator (`/ai-support`)
-- **Kreatif & Kanca (Hook) Analizörü**: Platform (TikTok / Reels / Shorts), kanca türü (Merak Boşluğu, Problem Vurgusu, Desen Kırıcı vb.), açı türü ve CTA parametrelerine göre tahmini virallik ve tutundurma puanı hesaplar; 4 aşamalı reklam metni üretir.
-- **Destek Yanıtı Üretici**: Kargo durumu, iade/değişim veya ürün soruları için müşteri adına ve sipariş numarasına özel yapılandırılmış kurumsal yanıt şablonları oluşturur.
+- **Creative & Hook Analyzer**: Evaluates short-form video hooks based on platform (TikTok, Reels, Shorts), hook archetype (Curiosity Gap, Problem First, Pattern Interrupt, Bold Claim), angle, and CTA to score virality, watch time retention, and generate structured 4-part scripts.
+- **Customer Support Template Generator**: Produces professional, empathetic ticket replies for order tracking, refund/exchange requests, and product inquiries with customer name and order ID tags.
 
 ### 4. Vision Sync (`/vision-sync`)
-- **Pazaryeri Entegrasyonları**: Shopify, Trendyol, Hepsiburada ve Amazon kanallarının anlık durumunu izler.
-- **SKU Eşleştirme Yöneticisi**: Kaynak SKU ile hedef pazaryeri barkodları arasında stok miktarı ve fiyat çarpanı tanımlayarak eşleştirme ekleme ve silme işlemlerini yönetir.
-- **Olay Kayıtları**: Senkronizasyon olaylarını ve webhook tetikleyicilerini gerçek zamanlı listeler.
+- **Marketplace Status Monitors**: Live latency and connection monitors for Shopify, Trendyol, Hepsiburada, and Amazon TR.
+- **SKU Mapping Table**: Add, delete, and manage source-to-channel SKU barcode mappings with stock levels and price multipliers.
+- **Event Logging**: Real-time webhook and synchronization activity stream.
 
 ### 5. Vision Content Extractor (`/content-extractor`)
-- **Web & Görsel Veri Ayrıştırıcı**: Hedef ürün bağlantısını ayrıştırarak başlık, marka, SKU, fiyatlandırma, stok durumu, varyant matrisi ve teknik özellikleri doğrulanmış JSON şemasına dönüştürür.
+- **Web & Visual Parser Sandbox**: Extract clean product titles, brand metadata, variant matrices, technical specifications, and inventory statuses from any product URL into validated JSON.
 
 ### 6. Vision Product Intelligence (`/product-intelligence`)
-- **Ürün Avcısı (Hunter)**: Trendyol, Amazon TR ve AliExpress üzerinde anahtar kelime araması yaparak tahmini aylık talep, ortalama pazar fiyatı, tedarik maliyeti ve kâr marjı potansiyelini analiz eder.
-- **Rakip Fiyat Takipçisi**: Rakiplerin fiyatlarını ve indirim hareketlerini izleyerek fiyat farkı yüzdesini ve fiyat kırma (dumping) durumlarını listeler.
+- **Product Hunter**: Search keywords across Trendyol, Amazon TR, and AliExpress to estimate monthly order volume, average market price, sourcing cost, and profit margin potential.
+- **Competitor Price Tracker**: Monitor competitor stores, track price differences, and receive price undercut/dumping alerts.
 
 ---
 
-## Lisans
+## License
 
-Bu proje **MIT Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasını inceleyebilirsiniz.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for full details.
 
 ---
 
 <div align="center">
   <p><strong>shazvision.com • SHAZ VISION</strong></p>
-  <p>© 2026 SHAZ VISION. Tüm hakları saklıdır.</p>
+  <p>© 2026 SHAZ VISION. All rights reserved.</p>
 </div>
