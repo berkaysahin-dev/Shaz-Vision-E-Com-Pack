@@ -1,119 +1,52 @@
 {{ 'vision-ui.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .vision-footer-{{ block.id }} {
-    padding: 60px 40px;
-    background: {{ block.settings.bg_color | default: '#0f172a' }};
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-radius: {{ block.settings.border_radius | default: 24 }}px {{ block.settings.border_radius | default: 24 }}px 0 0;
-    margin-top: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .vision-footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .vision-footer-col {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .vision-footer-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: {{ block.settings.title_color | default: '#ffffff' }};
-    margin-bottom: 8px;
-  }
-  .vision-footer-link {
-    color: {{ block.settings.text_color | default: '#94a3b8' }};
-    text-decoration: none;
-    font-size: 15px;
-    opacity: 0.85;
-    transition: var(--vision-transition);
-    position: relative;
-    width: fit-content;
-  }
-  .vision-footer-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; left: 0; width: 0%; height: 1px;
-    background: {{ block.settings.title_color | default: '#ffffff' }};
-    transition: width 0.3s ease;
-  }
-  .vision-footer-link:hover {
-    opacity: 1;
-    transform: translateX(5px);
-  }
-  .vision-footer-link:hover::after {
-    width: 100%;
-  }
-  .vision-footer-bottom {
-    margin-top: 60px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .vision-signature {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .vision-signature-glow {
-    font-weight: 800;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-    transition: all 0.3s ease;
-  }
-  .vision-signature:hover {
-    color: #ffffff;
-  }
-  .vision-signature:hover .vision-signature-glow {
-    text-shadow: 0 0 20px rgba(99,102,241,1), 0 0 30px rgba(99,102,241,0.8);
-  }
-{%- endstyle -%}
-
-<div class="vision-block" style="margin:0;" {{ block.shopify_attributes }}>
-  <footer class="vision-footer-{{ block.id }} vision-glass">
+<div class="vision-block vision-footer-wrap" {{ block.shopify_attributes }}>
+  <footer class="vision-footer" style="background: {{ block.settings.bg_color | default: 'linear-gradient(180deg, #0b0f19 0%, #030712 100%)' }}; border-radius: {{ block.settings.border_radius | default: 24 }}px {{ block.settings.border_radius | default: 24 }}px 0 0;">
     <div class="vision-footer-grid">
-      <div class="vision-footer-col vision-fade-up">
-        <div class="vision-footer-title">{{ block.settings.col_1_title | default: 'Kurumsal' }}</div>
-        <a href="#" class="vision-footer-link">Hakkımızda</a>
-        <a href="#" class="vision-footer-link">Hikayemiz</a>
-        <a href="#" class="vision-footer-link">Kariyer</a>
+      <div class="vision-footer-col">
+        <div class="vision-footer-brand-title">{{ shop.name }}</div>
+        <p class="vision-footer-desc">{{ block.settings.brand_tagline | default: 'Yüksek kalite standartları ve güvenli alışveriş garantisi ile her zaman yanınızdayız.' }}</p>
+        <div class="vision-footer-socials">
+          <a href="#" class="vision-social-pill" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="vision-social-pill" aria-label="X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="vision-social-pill" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="vision-footer-col vision-fade-up" style="animation-delay: 0.1s;">
-        <div class="vision-footer-title">{{ block.settings.col_2_title | default: 'Müşteri Hizmetleri' }}</div>
-        <a href="#" class="vision-footer-link">Kargo Politikası</a>
-        <a href="#" class="vision-footer-link">İade & Değişim</a>
-        <a href="#" class="vision-footer-link">Sıkça Sorulan Sorular</a>
+      
+      <div class="vision-footer-col">
+        <div class="vision-footer-title" style="color: {{ block.settings.title_color | default: '#ffffff' }};">{{ block.settings.col_1_title | default: 'Kurumsal' }}</div>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Hakkımızda</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Hikayemiz & Vizyonumuz</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Mağazalarımız</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Kariyer</a>
       </div>
-      <div class="vision-footer-col vision-fade-up" style="animation-delay: 0.2s;">
-        <div class="vision-footer-title">{{ block.settings.col_3_title | default: 'Sosyal Medya' }}</div>
-        <a href="#" class="vision-footer-link">Instagram</a>
-        <a href="#" class="vision-footer-link">Twitter</a>
-        <a href="#" class="vision-footer-link">TikTok</a>
+      
+      <div class="vision-footer-col">
+        <div class="vision-footer-title" style="color: {{ block.settings.title_color | default: '#ffffff' }};">{{ block.settings.col_2_title | default: 'Müşteri Hizmetleri' }}</div>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Kargo & Teslimat</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Kolay İade & Değişim</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Güvenli Ödeme</a>
+        <a href="#" class="vision-footer-link" style="color: {{ block.settings.text_color | default: '#94a3b8' }};">Sıkça Sorulan Sorular</a>
+      </div>
+      
+      <div class="vision-footer-col">
+        <div class="vision-footer-title" style="color: {{ block.settings.title_color | default: '#ffffff' }};">{{ block.settings.col_3_title | default: 'Fırsatlardan Haberdar Olun' }}</div>
+        <p class="vision-footer-desc" style="font-size: 13px;">İlk alışverişinize özel indirimler ve yeni ürünlerden anında haberdar olmak için bültene katılın.</p>
+        <div class="vision-footer-form">
+          <input type="email" placeholder="E-posta adresiniz..." class="vision-footer-input">
+          <button type="button" class="vision-footer-btn" onclick="alert('Bültene kaydınız alındı! Teşekkürler.')">Katıl</button>
+        </div>
       </div>
     </div>
     
-    <div class="vision-footer-bottom vision-fade-up" style="animation-delay: 0.3s;">
-      <div style="color: {{ block.settings.text_color | default: '#94a3b8' }}; opacity: 0.8; font-size: 14px;">
+    <div class="vision-footer-bottom">
+      <div style="color: {{ block.settings.text_color | default: '#94a3b8' }}; opacity: 0.8; font-size: 13px;">
         &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Tüm hakları saklıdır.
       </div>
       
@@ -126,57 +59,5 @@
 </div>
 
 {% schema %}
-{
-  "name": "Premium Footer",
-  "target": "section",
-  "stylesheet": "vision-ui.css",
-  "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Arka Plan Rengi",
-      "default": "#0f172a"
-    },
-    {
-      "type": "color",
-      "id": "title_color",
-      "label": "Başlık Rengi",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Metin Rengi",
-      "default": "#94a3b8"
-    },
-    {
-      "type": "text",
-      "id": "col_1_title",
-      "label": "1. Sütun Başlığı",
-      "default": "Kurumsal"
-    },
-    {
-      "type": "text",
-      "id": "col_2_title",
-      "label": "2. Sütun Başlığı",
-      "default": "Müşteri Hizmetleri"
-    },
-    {
-      "type": "text",
-      "id": "col_3_title",
-      "label": "3. Sütun Başlığı",
-      "default": "Sosyal Medya"
-    },
-    {
-      "type": "range",
-      "id": "border_radius",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "label": "Üst Kenar Yuvarlatma",
-      "default": 24
-    }
-  ]
-}
+{"name":"Premium Footer","target":"section","stylesheet":"vision-ui.css","settings":[{"type":"text","id":"brand_tagline","label":"Marka Açıklaması","default":"Yüksek kalite standartları ve güvenli alışveriş garantisi ile her zaman yanınızdayız."},{"type":"color","id":"bg_color","label":"Arka Plan","default":"#0b0f19"},{"type":"color","id":"title_color","label":"Başlık Rengi","default":"#ffffff"},{"type":"color","id":"text_color","label":"Metin Rengi","default":"#94a3b8"},{"type":"text","id":"col_1_title","label":"1. Sütun Başlığı","default":"Kurumsal"},{"type":"text","id":"col_2_title","label":"2. Sütun Başlığı","default":"Müşteri Hizmetleri"},{"type":"text","id":"col_3_title","label":"3. Sütun Başlığı","default":"Fırsatları Yakalayın"},{"type":"range","id":"border_radius","min":0,"max":40,"step":4,"unit":"px","label":"Üst Kenar Yuvarlatma","default":24}]}
 {% endschema %}

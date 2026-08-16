@@ -88,42 +88,5 @@
 </script>
 
 {% schema %}
-{
-  "name": "Free Shipping Progress",
-  "target": "section",
-  "stylesheet": "vision-ui.css",
-  "settings": [
-    {
-      "type": "number",
-      "id": "threshold",
-      "label": "Free Shipping Threshold",
-      "default": 100
-    },
-    {
-      "type": "number",
-      "id": "simulated_cart_value",
-      "label": "Simulated Cart Value",
-      "info": "Used to preview the progress bar in the editor.",
-      "default": 75
-    },
-    {
-      "type": "text",
-      "id": "currency_symbol",
-      "label": "Currency Symbol",
-      "default": "$"
-    },
-    {
-      "type": "color",
-      "id": "bar_color",
-      "label": "Progress Bar Color",
-      "default": "#3b82f6"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#ffffff"
-    }
-  ]
-}
+{"name":"Free Shipping Progress","target":"section","stylesheet":"vision-ui.css","settings":[{"type":"number","id":"threshold","label":"Free Shipping Threshold","default":100},{"type":"number","id":"simulated_cart_value","label":"Simulated Cart Value","info":"Used to preview the progress bar in the editor.","default":75},{"type":"text","id":"currency_symbol","label":"Currency Symbol","default":"$"},{"type":"color","id":"bar_color","label":"Progress Bar Color","default":"#3b82f6"},{"type":"color","id":"bg_color","label":"Background Color","default":"#ffffff"}]}
 {% endschema %}

@@ -1,54 +1,7 @@
 {{ 'vision-ui.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .vision-benefits-{{ block.id }} {
-    display: flex;
-    flex-direction: {{ block.settings.layout }};
-    gap: {{ block.settings.gap }}px;
-    padding: {{ block.settings.padding }}px 0;
-  }
-  .vision-benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .vision-benefit-icon {
-    width: {{ block.settings.icon_size }}px;
-    height: {{ block.settings.icon_size }}px;
-    flex-shrink: 0;
-    color: {{ block.settings.icon_color }};
-    background-color: {{ block.settings.icon_bg_color }};
-    border-radius: var(--vision-radius-full);
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .vision-benefit-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-  .vision-benefit-content {
-    display: flex;
-    flex-direction: column;
-  }
-  .vision-benefit-title {
-    font-size: {{ block.settings.title_size }}px;
-    font-weight: 700;
-    color: {{ block.settings.text_color }};
-    line-height: 1.2;
-  }
-  .vision-benefit-desc {
-    font-size: {{ block.settings.desc_size }}px;
-    color: {{ block.settings.text_color }};
-    opacity: 0.8;
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-{%- endstyle -%}
-
 <div class="vision-block" {{ block.shopify_attributes }}>
-  <div class="vision-benefits-{{ block.id }} vision-glass" style="border-radius: var(--vision-radius-xl); padding: 24px; background: {{ block.settings.bg_color | default: 'transparent' }};">
+  <div class="vision-benefits-box vision-glass" style="display: flex; flex-direction: {{ block.settings.layout | default: 'column' }}; gap: {{ block.settings.gap | default: 16 }}px; background: {{ block.settings.bg_color | default: 'transparent' }};">
     {%- for i in (1..3) -%}
       {%- assign title_setting = 'benefit_' | append: i | append: '_title' -%}
       {%- assign desc_setting = 'benefit_' | append: i | append: '_desc' -%}
@@ -56,7 +9,7 @@
       
       {%- if block.settings[title_setting] != blank -%}
         <div class="vision-benefit-item">
-          <div class="vision-benefit-icon">
+          <div class="vision-benefit-icon" style="color: {{ block.settings.icon_color | default: '#10b981' }}; background-color: {{ block.settings.icon_bg_color | default: '#ecfdf5' }}; width: {{ block.settings.icon_size | default: 40 }}px; height: {{ block.settings.icon_size | default: 40 }}px;">
              {%- case block.settings[icon_setting] -%}
               {%- when 'check' -%}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
@@ -69,9 +22,9 @@
             {%- endcase -%}
           </div>
           <div class="vision-benefit-content">
-            <span class="vision-benefit-title">{{ block.settings[title_setting] }}</span>
+            <span class="vision-benefit-title" style="font-size: {{ block.settings.title_size | default: 15 }}px; color: {{ block.settings.text_color | default: '#0f172a' }};">{{ block.settings[title_setting] }}</span>
             {%- if block.settings[desc_setting] != blank -%}
-              <span class="vision-benefit-desc">{{ block.settings[desc_setting] }}</span>
+              <span class="vision-benefit-desc" style="font-size: {{ block.settings.desc_size | default: 13 }}px; color: {{ block.settings.text_color | default: '#64748b' }};">{{ block.settings[desc_setting] }}</span>
             {%- endif -%}
           </div>
         </div>
@@ -81,174 +34,5 @@
 </div>
 
 {% schema %}
-{
-  "name": "Product Benefits",
-  "target": "section",
-  "stylesheet": "vision-ui.css",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Benefit 1"
-    },
-    {
-      "type": "select",
-      "id": "benefit_1_icon",
-      "label": "Icon",
-      "options": [
-        {"value": "check", "label": "Checkmark"},
-        {"value": "sparkles", "label": "Sparkles"},
-        {"value": "heart", "label": "Heart"}
-      ],
-      "default": "sparkles"
-    },
-    {
-      "type": "text",
-      "id": "benefit_1_title",
-      "label": "Title",
-      "default": "Premium Quality"
-    },
-    {
-      "type": "text",
-      "id": "benefit_1_desc",
-      "label": "Description",
-      "default": "Made with the finest materials."
-    },
-    {
-      "type": "header",
-      "content": "Benefit 2"
-    },
-    {
-      "type": "select",
-      "id": "benefit_2_icon",
-      "label": "Icon",
-      "options": [
-        {"value": "check", "label": "Checkmark"},
-        {"value": "sparkles", "label": "Sparkles"},
-        {"value": "heart", "label": "Heart"}
-      ],
-      "default": "check"
-    },
-    {
-      "type": "text",
-      "id": "benefit_2_title",
-      "label": "Title",
-      "default": "Eco-Friendly"
-    },
-    {
-      "type": "text",
-      "id": "benefit_2_desc",
-      "label": "Description",
-      "default": "100% sustainable packaging."
-    },
-    {
-      "type": "header",
-      "content": "Benefit 3"
-    },
-    {
-      "type": "select",
-      "id": "benefit_3_icon",
-      "label": "Icon",
-      "options": [
-        {"value": "check", "label": "Checkmark"},
-        {"value": "sparkles", "label": "Sparkles"},
-        {"value": "heart", "label": "Heart"}
-      ],
-      "default": "heart"
-    },
-    {
-      "type": "text",
-      "id": "benefit_3_title",
-      "label": "Title",
-      "default": "Customer Loved"
-    },
-    {
-      "type": "text",
-      "id": "benefit_3_desc",
-      "label": "Description",
-      "default": "Over 10,000 happy customers."
-    },
-    {
-      "type": "header",
-      "content": "Styling"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {"value": "column", "label": "List (Vertical)"},
-        {"value": "row", "label": "Row (Horizontal)"}
-      ],
-      "default": "column"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "min": 8,
-      "max": 32,
-      "step": 4,
-      "unit": "px",
-      "label": "Spacing Between Items",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "padding",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "label": "Vertical Padding",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "icon_size",
-      "min": 24,
-      "max": 64,
-      "step": 4,
-      "unit": "px",
-      "label": "Icon Box Size",
-      "default": 40
-    },
-    {
-      "type": "color",
-      "id": "icon_color",
-      "label": "Icon Color",
-      "default": "#10b981"
-    },
-    {
-      "type": "color",
-      "id": "icon_bg_color",
-      "label": "Icon Background Color",
-      "default": "#ecfdf5"
-    },
-    {
-      "type": "range",
-      "id": "title_size",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "label": "Title Size",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "desc_size",
-      "min": 10,
-      "max": 18,
-      "step": 1,
-      "unit": "px",
-      "label": "Description Size",
-      "default": 14
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#333333"
-    }
-  ]
-}
+{"name":"Ürün Avantajları","target":"section","stylesheet":"vision-ui.css","settings":[{"type":"header","content":"Avantaj 1"},{"type":"select","id":"benefit_1_icon","label":"İkon","options":[{"value":"check","label":"Onay"},{"value":"sparkles","label":"Yıldız"},{"value":"heart","label":"Kalp"}],"default":"sparkles"},{"type":"text","id":"benefit_1_title","label":"Başlık","default":"Premium Kalite"},{"type":"text","id":"benefit_1_desc","label":"Açıklama","default":"En kaliteli malzemelerle üretilmiştir."},{"type":"header","content":"Avantaj 2"},{"type":"select","id":"benefit_2_icon","label":"İkon","options":[{"value":"check","label":"Onay"},{"value":"sparkles","label":"Yıldız"},{"value":"heart","label":"Kalp"}],"default":"check"},{"type":"text","id":"benefit_2_title","label":"Başlık","default":"Hızlı & Güvenli Kargo"},{"type":"text","id":"benefit_2_desc","label":"Açıklama","default":"Sigortalı ve özenli paketleme."},{"type":"header","content":"Avantaj 3"},{"type":"select","id":"benefit_3_icon","label":"İkon","options":[{"value":"check","label":"Onay"},{"value":"sparkles","label":"Yıldız"},{"value":"heart","label":"Kalp"}],"default":"heart"},{"type":"text","id":"benefit_3_title","label":"Başlık","default":"Müşteri Memnuniyeti"},{"type":"text","id":"benefit_3_desc","label":"Açıklama","default":"10.000+ mutlu müşteri yorumu."},{"type":"header","content":"Görünüm"},{"type":"select","id":"layout","label":"Yerleşim","options":[{"value":"column","label":"Alt Alta (Dikey)"},{"value":"row","label":"Yan Yana (Yatay)"}],"default":"column"},{"type":"range","id":"gap","min":8,"max":32,"step":4,"unit":"px","label":"Boşluk","default":16},{"type":"color","id":"icon_color","label":"İkon Rengi","default":"#10b981"},{"type":"color","id":"icon_bg_color","label":"İkon Arka Planı","default":"#ecfdf5"},{"type":"color","id":"text_color","label":"Metin Rengi","default":"#0f172a"}]}
 {% endschema %}
