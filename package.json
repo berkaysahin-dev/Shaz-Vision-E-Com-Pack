@@ -1,8 +1,28 @@
 {
   "name": "shaz-vision-ecom-pack",
   "version": "1.0.0",
-  "private": true,
-  "description": "Shaz Vision E-Com Pack - All-in-One E-Commerce AI Suite & Toolset Command Center",
+  "private": false,
+  "description": "Shaz Vision E-Com Pack - All-in-One E-Commerce Management Suite, Shopify Storefront Theme & UI Extension Pack",
+  "author": "Berkay Şahin <berkay@shazvision.com> (https://shazvision.com)",
+  "license": "MIT",
+  "homepage": "https://shazvision.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/berkaysahin-dev/Shaz-Vision-E-Com-Pack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/berkaysahin-dev/Shaz-Vision-E-Com-Pack/issues"
+  },
+  "keywords": [
+    "shopify",
+    "ecommerce",
+    "shopify-theme",
+    "shopify-extensions",
+    "nextjs",
+    "react",
+    "tailwind",
+    "shaz-vision"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
